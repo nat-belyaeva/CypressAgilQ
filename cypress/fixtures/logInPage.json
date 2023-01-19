@@ -1,0 +1,14 @@
+{
+  "userData": {
+    "email": "tech16@agilquest.net",
+    "password": "222",
+    "textConformationPopUp": "Invalid Email Address and/or Password",
+    "invalidEmail": "tec@mail.net1",
+    "invalidPassword": "5555"
+  },
+  "forgotPasswordData": {
+    "textPasswordResetEmail": "A password reset email will be sent to the email address entered.",
+    "headerText": "Forgot Password",
+    "incorrectEmail": "tech16agilquest.net"
+}
+}

@@ -19,7 +19,7 @@ class LogInPage {
     };
 
     typeEmailAddress(userEmail) {
-        this.elements.getEmailAddressInput().type(userEmail, {log: false});
+        this.elements.getEmailAddressInput().type(userEmail,{log:false});
     };
 
     typePassword(userPassword) {

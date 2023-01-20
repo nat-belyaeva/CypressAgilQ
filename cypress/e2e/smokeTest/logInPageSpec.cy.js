@@ -10,8 +10,11 @@ describe ('LogIn test suit', () => {
 
     beforeEach(function () {
         cy.fixture('logInPage').then(data => this.data = data);
+        cy.clearLocalStorage()
+        cy.clearCookies();
         cy.visit('/');
     });
+
 
     it("TC_01.01 > Verify that User is able to log in to the forum using a valid login and password", function () {
         logInPage.logIn(this.data.userData.email, this.data.userData.password);
@@ -41,9 +44,8 @@ describe ('LogIn test suit', () => {
         logInPage.elements.getForgotPasswordForm().should('be.visible');
         logInPage.elements.getHeaderForgotPasswordText()
             .should('have.text', this.data.forgotPasswordData.headerText);
-
-         logInPage.sendForgottenEmail(this.data.userData.email);
-         logInPage.elements.getTextEmailSentSuccessfully()
+        logInPage.sendForgottenEmail(this.data.userData.email);
+        logInPage.elements.getTextEmailSentSuccessfully()
              .should('have.text', this.data.forgotPasswordData.textPasswordResetEmail);
     });
 
@@ -55,7 +57,5 @@ describe ('LogIn test suit', () => {
         logInPage.sendForgottenEmail(this.data.forgotPasswordData.incorrectEmail);
         logInPage.elements.getForgottenOkBtn().should('be.disabled');
     });
-
-
 
 });

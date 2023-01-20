@@ -7,6 +7,9 @@ class HomePage {
         getSearchLocationResultDropdown: () => cy.get('#geosearch-results-menu'),
         getCrossLocationBtn: () => cy.get('.remove-icon'),
         getAssetCategory: () => cy.get('home_assetCategory'),
+        getWhenWidget: () => cy.get('home_when'),
+        getWhenPopUp: () => cy.get('.when-popup'),
+        getSingleMultiDayTab: () => cy.get('.when-popup')
 
 
     }

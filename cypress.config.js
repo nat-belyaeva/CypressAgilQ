@@ -4,7 +4,8 @@ module.exports = defineConfig({
   viewportWidth: 1920,
   viewportHeight: 1080,
   chromeWebSecurity: false,
-  defaultCommandTimeout: 7000,
+  defaultCommandTimeout: 8000,
+  requestTimeout: 15000,
   video: false,
   e2e: {
     baseUrl: 'https://loginauto.agilquest.com/',
@@ -12,5 +13,9 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+  },
+  reporter: 'junit',
+  reporterOptions: {
+    mochaFile: 'reports/test-results-[hash].xml',
   },
 });

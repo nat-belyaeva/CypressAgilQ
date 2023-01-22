@@ -2,6 +2,7 @@
 
 import HomePage from "../../pageObjects/homePage";
 import LogInPage from "../../pageObjects/logInPage";
+import listAssetTypes from "../../fixtures/listAssetTypes";
 
 const logInPage = new LogInPage();
 const homePage = new HomePage();
@@ -31,10 +32,35 @@ describe("Search Widget Suit", () => {
     });
 
     it('TC_02.08 > Verify that User is able to select a location from Location Dropdown', function () {
-         homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
 
     });
 
+    it('TC_02.09 > Verify that User is able to select Collaboration Space from AssetType Dropdown',
+        function () {
+            homePage.findLocation(this.data.locationType, this.data.locationName);
+
+    });
+
+    it('TC_02.10 > Verify that User is able to cross selected location', function () {
+            homePage.deleteLocation(this.data.locationType, this.data.locationName);
+            homePage.elements.getLocationInput().should('have.value', '')
+
+        });
+
+    it.only('TC_02.10 ', function () {
+       homePage.checkElementOfAssetTypes(this.data.assetTypes);
+
+    });
+
+    listAssetTypes.forEach((el, index) => {
+        console.log(index, el)
+        it(`Verify Asset ${el}`, function () {
+          homePage.checkElementOfAssetTypes(index, el)
+
+
+        })
+    })
 })
 

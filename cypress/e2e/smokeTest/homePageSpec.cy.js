@@ -8,7 +8,8 @@ const logInPage = new LogInPage();
 const homePage = new HomePage();
 const ADMIN = Cypress.env('admin');
 
-describe("Search Widget Suit", () => {
+
+describe("Search Widget Suite", () => {
 
     beforeEach(function () {
         cy.fixture('homePage').then(data => this.data = data);
@@ -16,17 +17,19 @@ describe("Search Widget Suit", () => {
         cy.visit('/');
         cy.login(ADMIN.email, ADMIN.password);
     });
+    // afterEach(function () {
+    //     cy.logout();
+    // });
 
 
     it("TC_02.06 > Verify that Reservation is set up by default in the Reservation/Event dropdown", function () {
-       // cy.loginUser(this.login.userData.email, this.login.userData.password);
+
         homePage.elements.getWhatDropdown().should('have.class', this.data.defaultClass);
         homePage.elements.getDefaultValue().should('have.value', this.data.isReservation);
     });
 
     it('TC_02.07 > Verify that User is able to select Event in the  Reservation/Event dropdown', function () {
         homePage.selectEventOfWhatDropdown();
-        //homePage.elements.getWhereMultiLocation().type('130');
         homePage.clickCancelBtnWherePopUp();
         homePage.elements.getWhatInput().should('have.value', this.data.isEvent);
     });
@@ -37,30 +40,77 @@ describe("Search Widget Suit", () => {
 
     });
 
-    it('TC_02.09 > Verify that User is able to select Collaboration Space from AssetType Dropdown',
-        function () {
-            homePage.findLocation(this.data.locationType, this.data.locationName);
 
-    });
-
-    it('TC_02.10 > Verify that User is able to cross selected location', function () {
-            homePage.deleteLocation(this.data.locationType, this.data.locationName);
-            homePage.elements.getLocationInput().should('have.value', '')
-
-        });
-
-    it.only('TC_02.10 ', function () {
-       homePage.checkElementOfAssetTypes(this.data.assetTypes);
+    it('TC_02.09 > Verify that User is able to cross selected location', function () {
+        homePage.deleteLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', 'Where');
 
     });
 
     listAssetTypes.forEach((el, index) => {
-        console.log(index, el)
-        it(`Verify Asset ${el}`, function () {
-          homePage.checkElementOfAssetTypes(index, el)
+        let number = 10;
+        it(`TC_02.${number + index} > Verify Asset ${el} is selected by Admin User`, function () {
+            homePage.checkElementOfAssetTypes(el, index)
+        });
+    });
+});
 
+describe("Check Action Buttons", () => {
 
+    beforeEach(function () {
+        cy.fixture('homePage').then(data => this.data = data);
+        cy.clearLocalStorage();
+        cy.visit('/');
+        cy.login(ADMIN.email, ADMIN.password);
+    });
+    // afterEach(function () {
+    //     cy.logout();
+    // });
+    it('TC_02.17 > Verify that Search by List Button is enabled When Collaboration space is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if($el.text() === 'Collaboration Space') {
+                cy.wrap($el).click();
+            }
         })
-    })
-})
+        homePage.elements.getWhatTypeAsset().should('have.value','Collaboration Space');
+
+        homePage.elements.getSearchByListBtn().should('not.be.disabled');
+
+    });
+
+    it('TC_02.18 > Verify that Search by List Button is enabled When Collaboration space is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if($el.text() === 'Collaboration Space') {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value','Collaboration Space');
+
+        homePage.elements.getSearchByCalendar().should('not.be.disabled');
+
+    });
+
+    it('TC_02.19 > Verify that Search by List Button is enabled When Collaboration space is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if($el.text() === 'Collaboration Space') {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value','Collaboration Space');
+
+        homePage.elements.getSearchByFloorPlatBtn().should('not.be.disabled');
+
+    });
+
+
+});
 

@@ -31,5 +31,12 @@ Cypress.Commands.add('login', (email, password) => {
 
     cy.get(emailInput).type(email, {force:true});
     cy.get(passwordInput).type(password, {force:true});
+
     cy.get(loginBtn).click({force:true});
+
+});
+
+Cypress.Commands.add('logout', () => {
+    cy.get('.dropdown__trigger').click({force:true});
+    cy.get('.toolbar-logout-link a ').click({force:true});
 })

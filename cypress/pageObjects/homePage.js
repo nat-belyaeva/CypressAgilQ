@@ -16,11 +16,14 @@ class HomePage {
         getWhenPopUp: () => cy.get('.when-popup'),
         getSingleMultiDayTab: () => cy.get('.when-popup'),
         getWhatTypeAsset: () => cy.get('[placeholder="What"]'),
-        getListAssetTypes: () => cy.get('#dropdown-menu .drop-down-option')
+        getListAssetTypes: () => cy.get('#dropdown-menu .drop-down-option'),
+        getSearchByListBtn: () => cy.get('#searchByListBtn'),
+        getSearchByCalendar:() => cy.get('#searchByCalendarBtn'),
+        getSearchByFloorPlatBtn: () => cy.get('#searchByFloorPlanBtn'),
 
     };
     selectEventOfWhatDropdown() {
-        this.elements.getWhatDropdown().invoke('show').click({force:true});
+        this.elements.getWhatDropdown().trigger('mouseover').click();
         //this.elements.getReserveOrEventDropdown();
         this.elements.getEventOfWhatDropdown().trigger('mouseover').click();
     };
@@ -52,15 +55,12 @@ class HomePage {
         this.elements.getWhatTypeAsset().trigger('mouseover').click();
     };
 
-    checkElementOfAssetTypes(el) {
+    checkElementOfAssetTypes(el, index) {
         this.clickWhatField();
-        cy.log(el)
-        this.elements.getListAssetTypes().eq(i).trigger('mouseover').click();
-        this.elements.getWhatTypeAsset().invoke('val').should('eq', el)
-
-
-
-    }
+        this.elements.getListAssetTypes().eq(index).trigger('mouseover').click();
+        this.elements.getWhatTypeAsset().invoke('val').should('eq', el);
+        cy.wait(1000);
+    };
 
 
 };

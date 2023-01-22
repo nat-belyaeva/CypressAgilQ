@@ -27,7 +27,7 @@ class LogInPage {
     };
 
     clickLogInBtn() {
-        this.elements.getLogInBtn().click();
+        this.elements.getLogInBtn().click({force:true});
     };
 
     logIn(email, password) {

@@ -18,7 +18,7 @@ class HomePage {
         getWhatTypeAsset: () => cy.get('[placeholder="What"]'),
         getListAssetTypes: () => cy.get('#dropdown-menu .drop-down-option'),
         getSearchByListBtn: () => cy.get('#searchByListBtn'),
-        getSearchByCalendar:() => cy.get('#searchByCalendarBtn'),
+        getSearchByCalendar: () => cy.get('#searchByCalendarBtn'),
         getSearchByFloorPlatBtn: () => cy.get('#searchByFloorPlanBtn'),
 
     };
@@ -31,22 +31,22 @@ class HomePage {
         this.elements.getLocationInput().trigger('mouseover').type(location);
     };
     selectLocationFromDropdown(resLocation) {
-        this.elements.getSearchLocationResultDropdown().find('.drop-down-option').contains(resLocation).click();
+        this.elements.getSearchLocationResultDropdown().find('.drop-down-option').contains(resLocation).should('be.visible').click({ force: true });
     };
 
     findLocation(locationName, resLocation) {
-        this.typeLocation(locationName, {force:true});
+        this.typeLocation(locationName, { force: true });
         this.selectLocationFromDropdown(resLocation);
-
     };
+
     clickCancelBtnWherePopUp() {
-        this.elements.getCancelBtnWherePopUp().click({force:true});
+        this.elements.getCancelBtnWherePopUp().click({ force: true });
     };
     clickCrossLocationBtn() {
-        this.elements.getCrossLocationBtn().trigger('mouseover').click({force:true});
+        this.elements.getCrossLocationBtn().wait(800).click({force:true});
     };
 
-    deleteLocation(locationType,resLoc) {
+    deleteLocation(locationType, resLoc) {
         this.findLocation(locationType, resLoc);
         this.clickCrossLocationBtn();
     };
@@ -63,5 +63,6 @@ class HomePage {
     };
 
 
-};
+}
+
 export default HomePage;

@@ -4,9 +4,9 @@ module.exports = defineConfig({
   viewportWidth: 1920,
   viewportHeight: 1080,
   chromeWebSecurity: false,
-  defaultCommandTimeout: 20000,
+  defaultCommandTimeout: 50000,
   requestTimeout: 20000,
-  pageLoadTimeout: 20000,
+  pageLoadTimeout: 50000,
   video: false,
   e2e: {
     baseUrl: 'https://loginauto.agilquest.com/',

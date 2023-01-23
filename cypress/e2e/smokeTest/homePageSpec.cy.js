@@ -43,7 +43,7 @@ describe("Search Widget Suite", () => {
 
     it('TC_02.09 > Verify that User is able to cross selected location', function () {
         homePage.deleteLocation(this.data.locationType, this.data.locationName);
-        homePage.elements.getLocationInput().should('have.value', 'Where');
+        homePage.elements.getLocationInput().then(el => expect(el.val()).to.eql('Where'));
 
     });
 

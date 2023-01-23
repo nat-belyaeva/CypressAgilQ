@@ -34,7 +34,7 @@ describe ('LogIn test suit', () => {
         logInPage.elements.getConformationPopUp().should('be.visible')
         logInPage.elements.getErrorTextPopup().should('have.text', this.data.userData.textConformationPopUp);
         logInPage.clickOkBtnConfirmPopUp();
-        logInPage.elements.getConformationPopUp().should('not.exist')
+        logInPage.verifyUserCannotSignInWithIncorrectData() // Смотри loginPage.js
 
     });
 
@@ -46,11 +46,10 @@ describe ('LogIn test suit', () => {
             .should('have.text', this.data.forgotPasswordData.headerText);
         logInPage.sendForgottenEmail(this.data.userData.email);
         logInPage.elements.getTextEmailSentSuccessfully()
-             .should('have.text', this.data.forgotPasswordData.textPasswordResetEmail);
+            .should('have.text', this.data.forgotPasswordData.textPasswordResetEmail);
     });
 
-    it("TC_01.05 >Verify that User is not able to sent a password reset email to the Invalid email address entered",
-        function () {
+    it("TC_01.05 >Verify that User is not able to sent a password reset email to the Invalid email address entered",function () {
 
         logInPage.clickForgotPasswordLink();
 

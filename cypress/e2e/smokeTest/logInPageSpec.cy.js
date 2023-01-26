@@ -57,4 +57,18 @@ describe ('LogIn test suit', () => {
         logInPage.elements.getForgottenOkBtn().should('be.disabled');
     });
 
+    it("TC_01.20 > Verify that Login button is disabled When Password is not filled in", function () {
+        logInPage.typeEmailAddress(this.data.userData.email);
+        logInPage.elements.getLogInBtn().should('be.disabled');
+
+    });
+
+    it("TC_01.21 > Verify that Login button is disabled When Email is not filled in", function () {
+        logInPage.typeEmailAddress(this.data.userData.password);
+        logInPage.elements.getLogInBtn().should('be.disabled');
+
+    });
+
+
+
 });

@@ -81,7 +81,7 @@ describe("Check Action Buttons", () => {
 
     });
 
-    it('TC_02.18 > Verify that Search by List Button is enabled When Collaboration space is selected', function () {
+    it('TC_02.18 > Verify that Search by Callendar button is enabled When Collaboration space is selected', function () {
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
         homePage.clickWhatField();
@@ -96,7 +96,7 @@ describe("Check Action Buttons", () => {
 
     });
 
-    it('TC_02.19 > Verify that Search by List Button is enabled When Collaboration space is selected', function () {
+    it('TC_02.19 > Verify that Search by Floor button is enabled When Collaboration space is selected', function () {
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
         homePage.clickWhatField();
@@ -106,6 +106,51 @@ describe("Check Action Buttons", () => {
             }
         })
         homePage.elements.getWhatTypeAsset().should('have.value','Collaboration Space');
+
+        homePage.elements.getSearchByFloorPlatBtn().should('not.be.disabled');
+
+    });
+
+    it('TC_02.22 > Verify that Search by List Button is enabled When Workspace type Asset is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if($el.text() === 'Workspace') {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value','Workspace');
+
+        homePage.elements.getSearchByListBtn().should('not.be.disabled');
+
+    });
+
+    it('TC_02.23 > Verify that Search by Callendar button is enabled When Workspace type Asset is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if($el.text() === 'Workspace') {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value','Workspace');
+
+        homePage.elements.getSearchByCalendar().should('not.be.disabled');
+
+    });
+
+    it('TC_02.24 > Verify that Search by Floor button is enabled When Workspace type Asset is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if($el.text() === 'Workspace') {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value','Workspace');
 
         homePage.elements.getSearchByFloorPlatBtn().should('not.be.disabled');
 

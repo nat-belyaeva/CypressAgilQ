@@ -12,7 +12,7 @@ class HomePage {
         getCancelBtnWherePopUp: () => cy.get('.buttons-row .button-primary[style="text-overflow: initial;"]').eq(0),
         getCrossLocationBtn: () => cy.get('.remove-icon'),
         getAssetCategory: () => cy.get('home_assetCategory'),
-        getWhenWidget: () => cy.get('home_when'),
+        getCurrentDate: () => cy.get('#home_when'),
         getWhenPopUp: () => cy.get('.when-popup'),
         getSingleMultiDayTab: () => cy.get('.when-popup'),
         getWhatTypeAsset: () => cy.get('[placeholder="What"]'),

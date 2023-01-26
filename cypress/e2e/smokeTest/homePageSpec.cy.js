@@ -8,7 +8,6 @@ const logInPage = new LogInPage();
 const homePage = new HomePage();
 const ADMIN = Cypress.env('admin');
 
-
 describe("Search Widget Suite", () => {
 
     beforeEach(function () {
@@ -155,6 +154,23 @@ describe("Check Action Buttons", () => {
         homePage.elements.getSearchByFloorPlatBtn().should('not.be.disabled');
 
     });
+
+    describe("When Widget Suite", () => {
+
+        beforeEach(function () {
+            cy.fixture('homePage').then(data => this.data = data);
+            cy.clearLocalStorage();
+            cy.visit('/');
+            cy.login(ADMIN.email, ADMIN.password);
+        });
+
+        it.skip('Verify that current date is displayed in the When Widget', () => {
+           let date = new Date();
+           date.setDate(date.getDate() + 1);
+        })
+
+    });
+
 
 
 });

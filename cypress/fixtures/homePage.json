@@ -7,5 +7,8 @@
   "textWherePopUp": "Search for Locations",
   "LocationValue": "130_test16, 8 Ulitsa Tolstogo, Minsk Minskaja voblasć 220007 BY",
 
-  "assetTypes" : ["Collaboration Space", "Workspace", "Equipment", "Service", "Parking", "Transportation", "Health and Wellness"]
+  "assetTypes": ["Collaboration Space", "Workspace", "Equipment", "Service", "Parking", "Transportation", "Health and Wellness"],
+  "reservationName": "reservation",
+  "newChangeOwnerPopupText": "Select New Reservation Owner",
+  "newReservationOwner": "Natallia"
 }

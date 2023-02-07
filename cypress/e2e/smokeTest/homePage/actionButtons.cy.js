@@ -13,15 +13,12 @@ describe("Check Action Buttons", () => {
 
     beforeEach(function () {
         cy.fixture('homePage').then(data => this.data = data);
-        //cy.clearLocalStorage();
-
-    });
-    before(function () {
+        cy.clearLocalStorage();
         cy.visit('/');
         cy.login(ADMIN.email, ADMIN.password);
 
+    });
 
-    })
     // afterEach(function () {
     //     cy.logout();
     // });
@@ -133,6 +130,186 @@ describe("Check Action Buttons", () => {
         homePage.elements.getListAvailableAssets().should('be.visible');
         homePage.clickBookBtnForAvlBtn();
         homePage.reserveForm.getReserveForm().should('be.visible');
+
+    });
+
+    it('TC_02.37 > Verify that Search by List Button is enabled When Equipment Asset is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[2]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[2]);
+
+        homePage.elements.getSearchByListBtn().should('not.be.disabled');
+
+    });
+
+    it('TC_02.38 > Verify that Search by Calendar Button is disabled When Equipment Asset is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[2]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[2]);
+
+        homePage.elements.getSearchByCalendar().should('be.disabled');
+
+    });
+
+    it('TC_02.39 > Verify that Search by Floor Plan Button is disabled When Equipment Asset is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[2]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[2]);
+
+        homePage.elements.getSearchByFloorPlatBtn().should('be.disabled');
+
+    });
+
+    it('TC_02.41 > Verify that Search by List Button is enabled When Service Type Asset is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[3]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[3]);
+
+        homePage.elements.getSearchByListBtn().should('not.be.disabled');
+
+    });
+
+    it('TC_02.42 > Verify that Search by Calendar Button is disabled When Service Type is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[3]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[3]);
+
+        homePage.elements.getSearchByCalendar().should('be.disabled');
+
+    });
+
+    it('TC_02.43 > Verify that Search by Floor Plan Button is disabled When Service Type is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[3]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[3]);
+
+        homePage.elements.getSearchByFloorPlatBtn().should('be.disabled');
+
+    });
+
+    it('TC_02.42 > Verify that Search by List Button is enabled When Parking Asset Type is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[4]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[4]);
+
+        homePage.elements.getSearchByListBtn().should('not.be.disabled');
+
+    });
+
+    it('TC_02.43 > Verify that Search by Callendar button is enabled When Parking Asset Type is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[4]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[4]);
+
+        homePage.elements.getSearchByCalendar().should('not.be.disabled');
+
+    });
+
+    it('TC_02.44 > Verify that Search by Floor button is enabled When Parking Asset Type is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[4]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[4]);
+
+        homePage.elements.getSearchByFloorPlatBtn().should('not.be.disabled');
+
+    });
+
+    it('TC_02.47 > Verify that Search by List Button is enabled When Transportation Asset Type is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[5]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[5]);
+
+        homePage.elements.getSearchByListBtn().should('not.be.disabled');
+
+    });
+
+    it('TC_02.48 > Verify that Search by Callendar button is enabled When Transportation Asset Type is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[5]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[5]);
+
+        homePage.elements.getSearchByCalendar().should('not.be.disabled');
+
+    });
+
+    it('TC_02.49 > Verify that Search by Floor button is enabled When Transportation Asset Type is selected', function () {
+        homePage.findLocation(this.data.locationType, this.data.locationName);
+        homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
+        homePage.clickWhatField();
+        homePage.elements.getListAssetTypes().each(($el, index, $list) => {
+            if ($el.text() === this.data.assetTypes[5]) {
+                cy.wrap($el).click();
+            }
+        })
+        homePage.elements.getWhatTypeAsset().should('have.value', this.data.assetTypes[5]);
+
+        homePage.elements.getSearchByFloorPlatBtn().should('not.be.disabled');
 
     });
 })

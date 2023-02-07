@@ -34,9 +34,21 @@ class HomePage {
         getChangeOwnerBnt: () => cy.get('#owner-section-change-owner-button'),
         getMsTeamsCheckbox: () => cy.get('[for="meeting-type-1"]').eq(1),
         getInviteesBtn: () => cy.get('.display-inv-grid-icon'),
-        getNewChangeOwnerPopUp: () => cy.get('.popup-content-wrapper'),
+        getNewChangeOwnerPopUp: () => cy.get('div .owner-section-header'),
         getNewChangeOwnerPopUpText: () => cy.get('.owner-section-header'),
         getSearchForPearsonInputChangeOwner: () => cy.get('.simplified-user-search-widget-search'),
+        getUsersList: () => cy.get('#dropdown-menu').find('.drop-down-option-contacts').find('.drop-down-option-email'),
+        getOneUserFromChangeOwnerList: () =>  cy.get('.drop-down-option-contacts'),
+        getNewOwnerResult: () => cy.get('.owner-name'),
+
+        //for collaboration space
+        getNumberOfPeopleExpectedToAttend: () => cy.get('#people-num'),
+
+        //for Equipment & Service
+
+        getQuantity: () => cy.get('#res-quantity'),
+        getDeliveryLocation:() => cy.get('#res-delivery'),
+
 
     }
     selectEventOfWhatDropdown() {
@@ -106,7 +118,7 @@ class HomePage {
             .should('be.visible')
             .click({force:true});
     };
-
+   // reserve form
     typeReservationName(reservationName) {
         this.reserveForm.getReservationNameInput()
             .should('be.visible')
@@ -119,7 +131,9 @@ class HomePage {
     clickChangeOwnerBtn() {
         this.reserveForm.getChangeOwnerBnt()
             .should('be.visible')
-            .click({force:true});
+            .click({force:true})
+            .wait(500)
+
     };
 
     checkPrivateCheckbox() {
@@ -147,13 +161,42 @@ class HomePage {
     };
 
     typeNewChangeOwner(newOwner) {
-        this.clickChangeOwnerBtn();
-        this.reserveForm.getNewChangeOwnerPopUp().type(newOwner);
+        this.clickChangeOwnerBtn({force:true});
+        this.reserveForm.getSearchForPearsonInputChangeOwner()
+            .should('be.visible')
+            .click({force:true})
+            .wait(500)
+            .type(newOwner);
     };
     clickSubmitBtn() {
         this.reserveForm.getSubmitBtn().should('be.enabled').click({force:true})
     };
+    typeNumberOfPeopleExpectedToAttend(number) {
+        this.reserveForm.getNumberOfPeopleExpectedToAttend()
+            .should('be.visible')
+            .click({force:true})
+            .wait(500)
+            .type(number);
 
-};
+    };
+
+    typeQuantity(number) {
+        this.reserveForm.getQuantity()
+            .should('be.visible')
+            .click({force:true})
+            .wait(500)
+            .type(number);
+    };
+
+    typeDeliveryLocation(deliveryLocation) {
+        this.reserveForm.getDeliveryLocation()
+            .should('be.visible')
+            .click({force:true})
+            .wait(500)
+            .type(deliveryLocation);
+    };
+
+
+}
 
 export default HomePage;

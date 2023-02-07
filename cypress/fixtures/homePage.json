@@ -10,5 +10,10 @@
   "assetTypes": ["Collaboration Space", "Workspace", "Equipment", "Service", "Parking", "Transportation", "Health and Wellness"],
   "reservationName": "reservation",
   "newChangeOwnerPopupText": "Select New Reservation Owner",
-  "newReservationOwner": "Natallia"
+  "newReservationOwner": "user A",
+  "userEmail": "tech16@agilquest.net",
+  "fullNameOfNewOwner": "User A 111 Milan",
+  "numberOfPeopleExpectedToAttend": "2",
+  "quantity": "1"
+
 }

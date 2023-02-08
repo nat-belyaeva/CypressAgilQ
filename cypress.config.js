@@ -9,7 +9,7 @@ module.exports = defineConfig({
   pageLoadTimeout: 50000,
   video: false,
   e2e: {
-    baseUrl: 'https://loginauto.agilquest.com/',
+    baseUrl: 'https://loginauto.agilquest.com',
     excludeSpecPattern: ['**/1-getting-started/*', '**/2-advanced-examples/*'],
     setupNodeEvents(on, config) {
       // implement node event listeners here

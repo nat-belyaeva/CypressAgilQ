@@ -22,7 +22,7 @@ class HomePage {
         getSearchByFloorPlatBtn: () => cy.get('#searchByFloorPlanBtn'),
         getListAvailableAssets: () => cy.get('.search-result-list'),
         getBookBntForFirstAvailableAsset: () => cy.get('.search-result-item').eq(0).find('.button-primary'),
-
+        getStartTime: () => cy.get('#home_when_start_dateTimeWidget'),
     };
 
     reserveForm = {
@@ -116,6 +116,8 @@ class HomePage {
     clickBookBtnForAvlBtn() {
         this.elements.getBookBntForFirstAvailableAsset()
             .should('be.visible')
+            .wait(500)
+            .click({force:true})
             .click({force:true});
     };
    // reserve form
@@ -195,6 +197,11 @@ class HomePage {
             .wait(500)
             .type(deliveryLocation);
     };
+
+    clickStartDate() {
+        this.elements.getCurrentDate().wait(500).click({force:true});
+        this.elements.getStartTime().should('be.visible').wait(500).click({force:true});
+    }
 
 
 }

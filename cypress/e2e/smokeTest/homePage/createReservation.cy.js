@@ -15,7 +15,7 @@ const randomLocation = faker.address.cityName();
 describe('Single Reservation Creation', () => {
     beforeEach(function () {
         cy.fixture('homePage').then(data => this.data = data);
-        cy.clearLocalStorage();
+        //cy.clearLocalStorage();
 
         cy.visit('/');
         cy.login(ADMIN.email, ADMIN.password);

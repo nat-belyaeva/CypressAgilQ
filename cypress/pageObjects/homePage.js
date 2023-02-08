@@ -12,7 +12,7 @@ class HomePage {
         getCancelBtnWherePopUp: () => cy.get('.buttons-row .button-primary[style="text-overflow: initial;"]').eq(0),
         getCrossLocationBtn: () => cy.get('.remove-icon'),
         getAssetCategory: () => cy.get('home_assetCategory'),
-        getCurrentDate: () => cy.get('#home_when'),
+
         getWhenPopUp: () => cy.get('.when-popup'),
         getSingleMultiDayTab: () => cy.get('.when-popup'),
         getWhatTypeAsset: () => cy.get('[placeholder="What"]'),
@@ -22,7 +22,18 @@ class HomePage {
         getSearchByFloorPlatBtn: () => cy.get('#searchByFloorPlanBtn'),
         getListAvailableAssets: () => cy.get('.search-result-list'),
         getBookBntForFirstAvailableAsset: () => cy.get('.search-result-item').eq(0).find('.button-primary'),
+
+        //When Widget
         getStartTime: () => cy.get('#home_when_start_dateTimeWidget'),
+        getCurrentDate: () => cy.get('#home_when'),
+        getArrOfAvailableDaysInCalendar: () => cy.get('.date-time-popup tbody [tabindex]'),
+        getArrowNextMonth: () =>  cy.get('span:contains("›")'),
+        getApplyBtnOnCalendar: () => cy.get('.cancel-save-buttons button.save-button'),
+        getApplyBtnOnWhenWidget: () => cy.get('.when-cancel-save-buttons button.save-button'),
+        getCurrentDayOnCalendar: () => cy.get('.date-time-popup td.rdtActive'),
+        getValueOfCurrentDay: () => cy.get('.date-time-popup td[tabindex][data-value]')
+
+
     };
 
     reserveForm = {
@@ -199,9 +210,50 @@ class HomePage {
     };
 
     clickStartDate() {
-        this.elements.getCurrentDate().wait(500).click({force:true});
-        this.elements.getStartTime().should('be.visible').wait(500).click({force:true});
+        this.elements.getCurrentDate()
+            .wait(1000)
+            .trigger('mouseover')
+            .click({ force: true });
+        this.elements.getStartTime()
+            .should('be.visible')
+            .wait(500)
+            .click({ force: true });
+    };
+
+    clickArrowBtnNextMonth() {
+        this.elements.getArrowNextMonth()
+            .should('be.visible')
+            .wait(500)
+            .click({force:true});
+    };
+
+    clickApplyBtnOnCalendar() {
+        this.elements.getApplyBtnOnCalendar()
+            .should('be.visible')
+            .wait(500)
+            .click({force:true});
+    };
+
+    clickApplyBtnOnWhenWidget() {
+        this.elements.getApplyBtnOnWhenWidget()
+            .should('be.visible')
+            .wait(500)
+            .click({force:true});
+    };
+
+    selectFirstDayOfMonth() {
+        this.elements.getArrOfAvailableDaysInCalendar()
+            .first()
+            .click({force:true});
+    };
+
+    selectTomorrowDay(currentDay) {
+        this.elements.getCurrentDayOnCalendar().invoke('attr', 'data-value').then(data => currentDay = +data);
+        cy.then(() => cy.get(`.date-time-popup td[tabindex][data-value=${currentDay + 1}]`)).click({force:true});
     }
+
+
+
 
 
 }

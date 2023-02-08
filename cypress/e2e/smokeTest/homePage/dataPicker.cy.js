@@ -5,6 +5,7 @@ import LogInPage from "../../../pageObjects/logInPage";
 import listAssetTypes from "../../../fixtures/listAssetTypes";
 import checkCurrentDate from "../../../support/utilities/verifyCurrentDate";
 
+
 const logInPage = new LogInPage();
 const homePage = new HomePage();
 const ADMIN = Cypress.env('admin');
@@ -14,7 +15,7 @@ describe("Check Action Buttons", () => {
 
     beforeEach(function () {
         cy.fixture('homePage').then(data => this.data = data);
-        cy.clearLocalStorage();
+        //cy.clearLocalStorage();
         cy.visit('/');
         cy.login(ADMIN.email, ADMIN.password);
 
@@ -23,7 +24,7 @@ describe("Check Action Buttons", () => {
     // afterEach(function () {
     //     cy.logout();
     // });
-    it('TC_02.17 > Verify that Search by List Button is enabled When Collaboration space is selected', function () {
+    it('TC.02_52 > Verify that Carrent Day is displayed in When Widget', function () {
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
 
@@ -32,15 +33,30 @@ describe("Check Action Buttons", () => {
             cy.wrap(checkCurrentDate(currentDateWeb)).should('eq', true);
 
 
-        })
-    })
+        });
+    });
 
-    it.only('TC_02.17 > Verify that Search by List Button is enabled When Collaboration space is selected', function () {
+    it.only('TC_02.53 > Verify that User is able to select Date in Future in When Widget', function () {
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
 
         homePage.clickStartDate();
 
-    })
+        homePage.elements.getArrOfAvailableDaysInCalendar().then(data => {
+            let arrayActiveDays = data.toArray();
+            if (arrayActiveDays.length === 1) {
+                homePage.clickArrowBtnNextMonth();
+                homePage.selectFirstDayOfMonth();
+                homePage.clickApplyBtnOnCalendar();
+                homePage.clickApplyBtnOnWhenWidget();
 
-    });
+            }
+            homePage.selectTomorrowDay();
+            homePage.clickApplyBtnOnCalendar();
+            homePage.clickApplyBtnOnWhenWidget();
+
+
+            })
+    })
+})
+

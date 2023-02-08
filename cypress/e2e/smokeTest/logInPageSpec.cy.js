@@ -8,6 +8,7 @@ const header = new Header();
 
 describe ('LogIn test suit', () => {
 
+
     beforeEach(function () {
         cy.fixture('logInPage').then(data => this.data = data);
         cy.clearLocalStorage()

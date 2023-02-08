@@ -19,9 +19,9 @@ describe('reserve form verification', () => {
         cy.visit('/');
         cy.login(ADMIN.email, ADMIN.password);
 
-        cy.intercept('/aq-api/reservations/cost-estimates').as('cost-estimates');
-        cy.intercept('aq-api/availability/workspaces').as('workspaces');
-        cy.intercept('aq-api/locations').as('locations')
+        cy.intercept('/aq-api/reservations/cost-estimates*').as('cost-estimates');
+        cy.intercept('/aq-api/availability/workspaces*').as('workspaces');
+        cy.intercept('/aq-api/locations*').as('locations')
 
     });
     // before(function () {
@@ -75,7 +75,10 @@ describe('reserve form verification', () => {
 
         homePage.elements.getListAvailableAssets().should('be.visible');
         cy.wait('@locations');
+
+
         homePage.clickBookBtnForAvlBtn();
+        cy.wait('@cost-estimates');
         homePage.reserveForm.getReserveForm().should('be.visible');
         homePage.reserveForm.getAddAssetBtn().should('be.disabled');
 
@@ -98,6 +101,9 @@ describe('reserve form verification', () => {
 
         homePage.elements.getListAvailableAssets().should('be.visible');
         homePage.clickBookBtnForAvlBtn();
+
+        cy.wait('@cost-estimates');
+
         homePage.reserveForm.getPrivateCheckbox().should('not.be.checked');
 
     });
@@ -119,6 +125,8 @@ describe('reserve form verification', () => {
 
         homePage.elements.getListAvailableAssets().should('be.visible');
         homePage.clickBookBtnForAvlBtn();
+
+        cy.wait('@cost-estimates');
 
         homePage.checkPrivateCheckbox();
 
@@ -142,6 +150,8 @@ describe('reserve form verification', () => {
         homePage.elements.getListAvailableAssets().should('be.visible');
 
         homePage.clickBookBtnForAvlBtn();
+
+        cy.wait('@cost-estimates');
         homePage.uncheckPrivateCheckbox();
 
     });
@@ -164,6 +174,9 @@ describe('reserve form verification', () => {
         homePage.elements.getListAvailableAssets().should('be.visible');
 
         homePage.clickBookBtnForAvlBtn();
+
+        cy.wait('@cost-estimates');
+
         const reserveName = randomReservationName;
         homePage.typeReservationName(reserveName);
         homePage.reserveForm.getReservationNameInput().then(el => expect(el.val()).to.eql(reserveName));
@@ -192,7 +205,7 @@ describe('reserve form verification', () => {
 
         homePage.clickBookBtnForAvlBtn();
         cy.wait('@cost-estimates');
-        cy.wait('@workspaces');
+
         homePage.clickChangeOwnerBtn();
 
         homePage.reserveForm.getNewChangeOwnerPopUp()
@@ -271,6 +284,9 @@ describe('reserve form verification', () => {
         homePage.elements.getListAvailableAssets().should('be.visible');
 
         homePage.clickBookBtnForAvlBtn();
+
+        cy.wait('@cost-estimates');
+
         const reserveName = randomReservationName;
         homePage.typeReservationName(reserveName);
 

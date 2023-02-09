@@ -1,6 +1,6 @@
 class Header {
 
-        getUserProfileBtn = () => cy.get('.user-button');
+        getUserProfileBtn = () => cy.get('.user-name[role="button"]');
         getLogo = () => cy.get('.logo');
         getMyReservationAndRequestLink = () => cy.get('.toolbar-myreservations-link a[href="/myreservations"]');
 

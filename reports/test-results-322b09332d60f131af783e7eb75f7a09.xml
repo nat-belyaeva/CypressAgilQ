@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="163.517" tests="19" failures="1">
+  <testsuite name="Root Suite" timestamp="2023-02-09T19:39:00" tests="0" file="cypress\e2e\smokeTest\homePage\actionButtons.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Check Action Buttons" timestamp="2023-02-09T19:39:00" tests="19" time="163.501" failures="1">
+    <testcase name="Check Action Buttons TC_02.17 &gt; Verify that Search by List Button is enabled When Collaboration space is selected" time="11.406" classname="TC_02.17 &gt; Verify that Search by List Button is enabled When Collaboration space is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.18 &gt; Verify that Search by Callendar button is enabled When Collaboration space is selected" time="10.833" classname="TC_02.18 &gt; Verify that Search by Callendar button is enabled When Collaboration space is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.19 &gt; Verify that Search by Floor button is enabled When Collaboration space is selected" time="11.921" classname="TC_02.19 &gt; Verify that Search by Floor button is enabled When Collaboration space is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.22 &gt; Verify that Search by List Button is enabled When Workspace type Asset is selected" time="11.887" classname="TC_02.22 &gt; Verify that Search by List Button is enabled When Workspace type Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.23 &gt; Verify that Search by Callendar button is enabled When Workspace type Asset is selected" time="12.359" classname="TC_02.23 &gt; Verify that Search by Callendar button is enabled When Workspace type Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.24 &gt; Verify that Search by Floor button is enabled When Workspace type Asset is selected" time="10.731" classname="TC_02.24 &gt; Verify that Search by Floor button is enabled When Workspace type Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.25 &gt; Verify that User is able to click Book button for available asset" time="16.763" classname="TC_02.25 &gt; Verify that User is able to click Book button for available asset">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.37 &gt; Verify that Search by List Button is enabled When Equipment Asset is selected" time="13.123" classname="TC_02.37 &gt; Verify that Search by List Button is enabled When Equipment Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.38 &gt; Verify that Search by Calendar Button is disabled When Equipment Asset is selected" time="13.671" classname="TC_02.38 &gt; Verify that Search by Calendar Button is disabled When Equipment Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons &quot;before each&quot; hook for &quot;TC_02.39 &gt; Verify that Search by Floor Plan Button is disabled When Equipment Asset is selected&quot;" time="0.000" classname="&quot;before each&quot; hook for &quot;TC_02.39 &gt; Verify that Search by Floor Plan Button is disabled When Equipment Asset is selected&quot;">
+      <failure message="Timed out after waiting `50000ms` for your remote page to load.
+
+Your page did not fire its `load` event within `50000ms`.
+
+You can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.
+
+Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+
+When this `load` event occurs, Cypress will continue running commands.
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Check Action Buttons`" type="CypressError"><![CDATA[CypressError: Timed out after waiting `50000ms` for your remote page to load.
+
+Your page did not fire its `load` event within `50000ms`.
+
+You can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.
+
+Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+
+When this `load` event occurs, Cypress will continue running commands.
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Check Action Buttons`
+    at timedOutWaitingForPageLoad (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:141197:72)
+    at <unknown> (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:142384:16)
+    at tryCatcher (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:11318:23)
+    at <unknown> (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:6440:41)
+    at tryCatcher (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:11318:23)
+    at Promise._settlePromiseFromHandler (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:9253:31)
+    at Promise._settlePromise (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:9310:18)
+    at Promise._settlePromise0 (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:9355:10)
+    at Promise._settlePromises (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:9431:18)
+    at _drainQueueStep (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:6025:12)
+    at _drainQueue (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:6018:9)
+    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:6034:5)
+    at Async.drainQueues (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:5904:14)
+From Your Spec Code:
+    at Context.eval (webpack:///./cypress/e2e/smokeTest/homePage/actionButtons.cy.js:17:11)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

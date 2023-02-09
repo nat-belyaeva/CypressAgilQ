@@ -12,14 +12,17 @@ describe ('LogIn test suit', () => {
     beforeEach(function () {
         cy.fixture('logInPage').then(data => this.data = data);
         cy.clearLocalStorage()
-        cy.clearCookies();
-        cy.visit('/');
+        //cy.clearCookies();
+        cy.visit('/', {timeout:90000});
+
     });
 
 
     it("TC_01.01 > Verify that User is able to log in to the forum using a valid login and password", function () {
+        cy.intercept('/aq-api/users/profiles/delegate-clients?sysidUser=49').as('sysIdUser');
         logInPage.logIn(this.data.userData.email, this.data.userData.password);
-        header.elements.getUserProfileBtn().should('be.visible'); //this element is displayed in header after login successfully
+        cy.wait('@sysIdUser');
+       header.getUserProfileBtn().should('be.visible'); //this element is displayed in header after login successfully
     });
 
     it("TC_01.02 >  Verify that The user is not  able to log in to the forum using invalid login", function () {

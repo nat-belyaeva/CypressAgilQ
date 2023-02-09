@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="187.919" tests="9" failures="1">
+  <testsuite name="Root Suite" timestamp="2023-02-09T19:06:45" tests="0" file="cypress\e2e\smokeTest\homePage\reserveForm.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="reserve form verification" timestamp="2023-02-09T19:06:45" tests="9" time="187.900" failures="1">
+    <testcase name="reserve form verification TC_02.26 &gt; Verify that Submit button is disabled after opening the Reserve form" time="14.958" classname="TC_02.26 &gt; Verify that Submit button is disabled after opening the Reserve form">
+    </testcase>
+    <testcase name="reserve form verification TC_02.27 &gt; Verify that Add Asset button is disabled after opening the Reserve form" time="15.842" classname="TC_02.27 &gt; Verify that Add Asset button is disabled after opening the Reserve form">
+    </testcase>
+    <testcase name="reserve form verification TC_02.28 &gt; Verify that Private checkbox is unchecked after opening the Reserve form" time="15.761" classname="TC_02.28 &gt; Verify that Private checkbox is unchecked after opening the Reserve form">
+    </testcase>
+    <testcase name="reserve form verification TC_02.29 &gt; Verify that User is able to check the Private checkbox" time="16.411" classname="TC_02.29 &gt; Verify that User is able to check the Private checkbox">
+    </testcase>
+    <testcase name="reserve form verification TC_02.30 &gt; Verify that User is able to uncheck the Private checkbox" time="16.881" classname="TC_02.30 &gt; Verify that User is able to uncheck the Private checkbox">
+    </testcase>
+    <testcase name="reserve form verification TC_02.31 &gt; Verify that User is able to type reservation Name" time="17.392" classname="TC_02.31 &gt; Verify that User is able to type reservation Name">
+    </testcase>
+    <testcase name="reserve form verification TC_02.32 &gt; Verify that Change Owner button is clickable" time="17.502" classname="TC_02.32 &gt; Verify that Change Owner button is clickable">
+    </testcase>
+    <testcase name="reserve form verification TC_02.33 &gt; Verify that User is able to change Owner for another" time="22.603" classname="TC_02.33 &gt; Verify that User is able to change Owner for another">
+    </testcase>
+    <testcase name="reserve form verification &quot;before each&quot; hook for &quot;TC_02.34 &gt; Verify that Abb button is enabled when Reservation Name field is filled in for Workspace asset type&quot;" time="0.000" classname="&quot;before each&quot; hook for &quot;TC_02.34 &gt; Verify that Abb button is enabled when Reservation Name field is filled in for Workspace asset type&quot;">
+      <failure message="Timed out after waiting `50000ms` for your remote page to load.
+
+Your page did not fire its `load` event within `50000ms`.
+
+You can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.
+
+Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+
+When this `load` event occurs, Cypress will continue running commands.
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `reserve form verification`" type="CypressError"><![CDATA[CypressError: Timed out after waiting `50000ms` for your remote page to load.
+
+Your page did not fire its `load` event within `50000ms`.
+
+You can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.
+
+Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+
+When this `load` event occurs, Cypress will continue running commands.
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `reserve form verification`
+    at timedOutWaitingForPageLoad (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:141197:72)
+    at <unknown> (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:142384:16)
+    at tryCatcher (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:11318:23)
+    at <unknown> (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:6440:41)
+    at tryCatcher (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:11318:23)
+    at Promise._settlePromiseFromHandler (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:9253:31)
+    at Promise._settlePromise (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:9310:18)
+    at Promise._settlePromise0 (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:9355:10)
+    at Promise._settlePromises (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:9431:18)
+    at _drainQueueStep (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:6025:12)
+    at _drainQueue (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:6018:9)
+    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:6034:5)
+    at Async.drainQueues (https://loginauto.agilquest.com/__cypress/runner/cypress_runner.js:5904:14)
+From Your Spec Code:
+    at Context.eval (webpack:///./cypress/e2e/smokeTest/homePage/reserveForm.cy.js:19:11)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

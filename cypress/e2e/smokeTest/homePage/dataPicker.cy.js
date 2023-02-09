@@ -3,7 +3,7 @@
 import HomePage from "../../../pageObjects/homePage";
 import LogInPage from "../../../pageObjects/logInPage";
 import listAssetTypes from "../../../fixtures/listAssetTypes";
-import checkCurrentDate from "../../../support/utilities/verifyCurrentDate";
+
 
 
 const logInPage = new LogInPage();
@@ -24,39 +24,21 @@ describe("Check Action Buttons", () => {
     // afterEach(function () {
     //     cy.logout();
     // });
-    it('TC.02_52 > Verify that Carrent Day is displayed in When Widget', function () {
+    it('TC.02_52 > Verify that Current Day is displayed in When Widget', function () {
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
 
         homePage.elements.getCurrentDate().invoke('val').then(data => {
             let currentDateWeb = data.split(' - ')[0];
-            cy.wrap(checkCurrentDate(currentDateWeb)).should('eq', true);
-
-
+            homePage.checkCurrentDate(currentDateWeb)
         });
     });
 
-    it.only('TC_02.53 > Verify that User is able to select Date in Future in When Widget', function () {
+    it('TC_02.53 > Verify that User is able to select Date in Future in When Widget', function () {
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
 
         homePage.clickStartDate();
-
-        homePage.elements.getArrOfAvailableDaysInCalendar().then(data => {
-            let arrayActiveDays = data.toArray();
-            if (arrayActiveDays.length === 1) {
-                homePage.clickArrowBtnNextMonth();
-                homePage.selectFirstDayOfMonth();
-                homePage.clickApplyBtnOnCalendar();
-                homePage.clickApplyBtnOnWhenWidget();
-
-            }
-            homePage.selectTomorrowDay();
-            homePage.clickApplyBtnOnCalendar();
-            homePage.clickApplyBtnOnWhenWidget();
-
-
-            })
-    })
-})
-
+        homePage.selectAnotherDay(25);
+    });
+});

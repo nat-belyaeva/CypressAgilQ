@@ -11,7 +11,7 @@ describe ('LogIn test suit', () => {
         cy.fixture('logInPage').then(data => this.data = data);
         cy.clearLocalStorage()
         cy.clearCookies();
-        cy.visit('/');
+        cy.visit('/', {timeout:90000});
         cy.login(ADMIN.email, ADMIN.password);
     });
 

@@ -30,7 +30,7 @@ describe('Single Reservation Creation', () => {
 
     });
 
-    it('TC_02.35 > Verify that User is able to create single reservation with Workspace Asset type', function () {
+    it('TC_02.35 > Verify that User is able to create single reservation with Workspace Asset type for Today', function () {
        // cy.intercept('/aq-api/reservations/events').as('reservationCreated');
        //  cy.intercept('/aq-api/reservations/events/*').as('reservationConfirmationNumber');
 
@@ -64,7 +64,7 @@ describe('Single Reservation Creation', () => {
 
     });
 
-    it('TC_02.36 > Verify that User is able to create single reservation with Collaboration Space Asset type', function () {
+    it('TC_02.36 > Verify that User is able to create single reservation with Collaboration Space Asset type for Today', function () {
         // cy.intercept('/aq-api/reservations/events').as('reservationCreated');
         // cy.intercept('/aq-api/reservations/events/*').as('reservationConfirmationNumber');
 
@@ -101,7 +101,7 @@ describe('Single Reservation Creation', () => {
 
     });
 
-    it('TC_02.40 > Verify that User is able to create single reservation with Equipment Asset type', function () {
+    it('TC_02.40 > Verify that User is able to create single reservation with Equipment Asset type for Today', function () {
         // cy.intercept('/aq-api/reservations/events').as('reservationCreated');
         // cy.intercept('/aq-api/reservations/events/*').as('reservationConfirmationNumber');
 
@@ -181,7 +181,7 @@ describe('Single Reservation Creation', () => {
 
     });
 
-    it('TC_02.46 > Verify that User is able to create single reservation with Parking Asset type', function () {
+    it('TC_02.46 > Verify that User is able to create single reservation with Parking Asset type for Today', function () {
         // cy.intercept('/aq-api/reservations/events').as('reservationCreated');
         //  cy.intercept('/aq-api/reservations/events/*').as('reservationConfirmationNumber');
 
@@ -214,7 +214,7 @@ describe('Single Reservation Creation', () => {
 
     });
 
-    it('TC_02.50 > Verify that User is able to create single reservation with Transportation Asset type', function () {
+    it('TC_02.50 > Verify that User is able to create single reservation with Transportation Asset type for Today', function () {
         // cy.intercept('/aq-api/reservations/events').as('reservationCreated');
         //  cy.intercept('/aq-api/reservations/events/*').as('reservationConfirmationNumber');
 
@@ -247,7 +247,7 @@ describe('Single Reservation Creation', () => {
 
     });
 
-    it('TC_02.51 > Verify that User is able to create single reservation with Health and Wellness Asset type', function () {
+    it('TC_02.51 > Verify that User is able to create single reservation with Health and Wellness Asset type for Today', function () {
         // cy.intercept('/aq-api/reservations/events').as('reservationCreated');
         //  cy.intercept('/aq-api/reservations/events/*').as('reservationConfirmationNumber');
 

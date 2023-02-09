@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="185.490" tests="9" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-02-09T20:09:05" tests="0" file="cypress\e2e\smokeTest\homePage\reserveForm.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="reserve form verification" timestamp="2023-02-09T20:09:05" tests="9" time="185.479" failures="0">
+    <testcase name="reserve form verification TC_02.26 &gt; Verify that Submit button is disabled after opening the Reserve form" time="18.501" classname="TC_02.26 &gt; Verify that Submit button is disabled after opening the Reserve form">
+    </testcase>
+    <testcase name="reserve form verification TC_02.27 &gt; Verify that Add Asset button is disabled after opening the Reserve form" time="19.414" classname="TC_02.27 &gt; Verify that Add Asset button is disabled after opening the Reserve form">
+    </testcase>
+    <testcase name="reserve form verification TC_02.28 &gt; Verify that Private checkbox is unchecked after opening the Reserve form" time="19.409" classname="TC_02.28 &gt; Verify that Private checkbox is unchecked after opening the Reserve form">
+    </testcase>
+    <testcase name="reserve form verification TC_02.29 &gt; Verify that User is able to check the Private checkbox" time="19.841" classname="TC_02.29 &gt; Verify that User is able to check the Private checkbox">
+    </testcase>
+    <testcase name="reserve form verification TC_02.30 &gt; Verify that User is able to uncheck the Private checkbox" time="19.791" classname="TC_02.30 &gt; Verify that User is able to uncheck the Private checkbox">
+    </testcase>
+    <testcase name="reserve form verification TC_02.31 &gt; Verify that User is able to type reservation Name" time="21.282" classname="TC_02.31 &gt; Verify that User is able to type reservation Name">
+    </testcase>
+    <testcase name="reserve form verification TC_02.32 &gt; Verify that Change Owner button is clickable" time="20.302" classname="TC_02.32 &gt; Verify that Change Owner button is clickable">
+    </testcase>
+    <testcase name="reserve form verification TC_02.33 &gt; Verify that User is able to change Owner for another" time="26.599" classname="TC_02.33 &gt; Verify that User is able to change Owner for another">
+    </testcase>
+    <testcase name="reserve form verification TC_02.34 &gt; Verify that Abb button is enabled when Reservation Name field is filled in for Workspace asset type" time="19.292" classname="TC_02.34 &gt; Verify that Abb button is enabled when Reservation Name field is filled in for Workspace asset type">
+    </testcase>
+  </testsuite>
+</testsuites>

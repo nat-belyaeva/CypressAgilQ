@@ -241,16 +241,52 @@ class HomePage {
             .click({force:true});
     };
 
-    selectFirstDayOfMonth() {
+    selectAnotherDayOfMonth(day) {
         this.elements.getArrOfAvailableDaysInCalendar()
-            .first()
+            .eq(day)
             .click({force:true});
     };
 
-    selectTomorrowDay(currentDay) {
-        this.elements.getCurrentDayOnCalendar().invoke('attr', 'data-value').then(data => currentDay = +data);
-        cy.then(() => cy.get(`.date-time-popup td[tabindex][data-value=${currentDay + 1}]`)).click({force:true});
+    checkCurrentDate(date, plusDays = 0) {
+        let currentDate = new Date()
+        currentDate.setDate(currentDate.getDate() + plusDays)
+        let dateResult = `${currentDate.toLocaleString("en-US", { timeZone: "Europe/Moscow", month: 'short' })}
+         ${currentDate.toLocaleString("en-US", { timeZone: "Europe/Moscow", day: '2-digit' })}, ${currentDate.getFullYear()}`;
+        console.log(dateResult)
+
+        let dateVerified = JSON.stringify(new Date(date));
+        let dateFinalResult = JSON.stringify(new Date(dateResult));
+
+        cy.wrap(dateVerified).should('eq', dateFinalResult);
     }
+
+    selectAnotherDay(plusDays) {
+        this.elements.getArrOfAvailableDaysInCalendar().then(dates => {
+            let arrayActiveDays = dates.toArray();
+            if (arrayActiveDays.length - plusDays > 0) { // Больше нуля только в том случае, если прибавляемый день находится в этом месяце
+                this.elements.getCurrentDayOnCalendar().invoke('attr', 'data-value').then(data => {
+                    cy.get(`.date-time-popup td[tabindex][data-value=${+data + plusDays}]`).click({ force: true });
+                    this.clickApplyBtnOnCalendar();
+                    this.clickApplyBtnOnWhenWidget();
+                    this.elements.getCurrentDate().invoke('val').then(data => {
+                        let currentDateWeb = data.split(' - ')[0];
+                        this.checkCurrentDate(currentDateWeb, plusDays);
+                    });
+                });
+            } else {
+                let nextMonthDay = plusDays - arrayActiveDays.length;
+                this.clickArrowBtnNextMonth();
+                this.selectAnotherDayOfMonth(nextMonthDay);
+                this.clickApplyBtnOnCalendar();
+                this.clickApplyBtnOnWhenWidget();
+                this.elements.getCurrentDate().invoke('val').then(data => {
+                    let currentDateWeb = data.split(' - ')[0];
+                    this.checkCurrentDate(currentDateWeb, plusDays);
+                });
+            }
+        })
+    }
+
 
 
 

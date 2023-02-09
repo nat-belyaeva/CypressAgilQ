@@ -12,9 +12,11 @@ const ADMIN = Cypress.env('admin');
 describe("Check Action Buttons", () => {
 
     beforeEach(function () {
+
         cy.fixture('homePage').then(data => this.data = data);
         cy.clearLocalStorage();
-        cy.visit('/');
+        cy.visit('/', {timeout: 90000});
+
         cy.login(ADMIN.email, ADMIN.password);
 
     });

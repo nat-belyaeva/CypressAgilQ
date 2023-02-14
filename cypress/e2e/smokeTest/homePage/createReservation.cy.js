@@ -2,8 +2,10 @@
 
 import HomePage from "../../../pageObjects/homePage";
 import LogInPage from "../../../pageObjects/logInPage";
+import getClick from "../../../support/utilities/getClick";
 
 import { faker } from '@faker-js/faker';
+import clickIfExist from "../../../support/utilities/clickIfExist";
 const logInPage = new LogInPage();
 const homePage = new HomePage();
 const ADMIN = Cypress.env('admin');
@@ -14,25 +16,32 @@ const randomLocation = faker.address.cityName();
 
 describe('Single Reservation Creation', () => {
     beforeEach(function () {
+        cy.intercept('/auth/logout/user').as('logout');
+        cy.intercept('/aq-api/users/profiles/delegate-clients?sysidUser=49').as('sysIdUser');
+
         cy.fixture('homePage').then(data => this.data = data);
-        //cy.clearLocalStorage();
+        cy.clearLocalStorage();
 
         cy.visit('/');
+        cy.wait('@logout');
+
         cy.login(ADMIN.email, ADMIN.password);
+        cy.wait('@sysIdUser');
+
+        //if splash page is displayed
+        clickIfExist('.splash-popup .button-primary:nth-child(1)');
 
         cy.intercept('/aq-api/reservations/events').as('reservationCreated');
         cy.intercept('/aq-api/reservations/events/*').as('reservationConfirmationNumber');
 
-        cy.intercept('/aq-api/reservations/cost-estimates').as('cost-estimates');
-        cy.intercept('aq-api/availability/workspaces').as('workspaces');
-        cy.intercept('aq-api/locations').as('locations');
-        cy.intercept('/aq-api/locations/venues/*').as('currentLocation')
+        // cy.intercept('/aq-api/reservations/cost-estimates').as('cost-estimates');
+        // cy.intercept('aq-api/availability/workspaces').as('workspaces');
+         cy.intercept('aq-api/locations').as('locations');
+         cy.intercept('/aq-api/locations/venues/*').as('currentLocation')
 
     });
 
     it('TC_02.35 > Verify that User is able to create single reservation with Workspace Asset type for Today', function () {
-       // cy.intercept('/aq-api/reservations/events').as('reservationCreated');
-       //  cy.intercept('/aq-api/reservations/events/*').as('reservationConfirmationNumber');
 
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
@@ -46,13 +55,15 @@ describe('Single Reservation Creation', () => {
         homePage.elements.getWhatTypeAsset().should('have.value', 'Workspace');
 
         homePage.clickSearchByListBtn({force: true});
-        cy.wait(3000);
+        //cy.wait(3000);
 
         homePage.elements.getListAvailableAssets().should('be.visible');
 
-        homePage.clickBookBtnForAvlBtn();
-
-        cy.wait('@cost-estimates');
+        //use recurse function to click the button BookBtnForAvlBtn()
+        getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+        // homePage.clickBookBtnForAvlBtn();
+        //
+        // cy.wait('@cost-estimates');
        // cy.wait('@workspaces');
 
         const reserveName = randomReservationName;

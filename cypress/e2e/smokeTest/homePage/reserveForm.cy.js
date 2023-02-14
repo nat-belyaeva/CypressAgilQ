@@ -4,6 +4,7 @@ import HomePage from "../../../pageObjects/homePage";
 import LogInPage from "../../../pageObjects/logInPage";
 
 import { faker } from '@faker-js/faker';
+import clickIfExist from "../../../support/utilities/clickIfExist";
 const logInPage = new LogInPage();
 const homePage = new HomePage();
 const ADMIN = Cypress.env('admin');
@@ -12,12 +13,19 @@ const randomReservationName = faker.company.name();
 
 describe('reserve form verification', () => {
     beforeEach(function () {
+        cy.intercept('/auth/logout/user').as('logout');
+        cy.intercept('/aq-api/users/profiles/delegate-clients?sysidUser=49').as('sysIdUser');
+
         cy.fixture('homePage').then(data => this.data = data);
         cy.clearLocalStorage();
 
-
         cy.visit('/');
+        cy.wait('@logout');
+
         cy.login(ADMIN.email, ADMIN.password);
+        cy.wait('@sysIdUser');
+        //if splash page is displayed
+        clickIfExist('.splash-popup .button-primary:nth-child(1)');
 
         cy.intercept('/aq-api/reservations/cost-estimates*').as('cost-estimates');
         cy.intercept('/aq-api/availability/workspaces*').as('workspaces');

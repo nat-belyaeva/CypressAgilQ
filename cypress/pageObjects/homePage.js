@@ -31,8 +31,12 @@ class HomePage {
         getApplyBtnOnCalendar: () => cy.get('.cancel-save-buttons button.save-button'),
         getApplyBtnOnWhenWidget: () => cy.get('.when-cancel-save-buttons button.save-button'),
         getCurrentDayOnCalendar: () => cy.get('.date-time-popup td.rdtActive'),
-        getValueOfCurrentDay: () => cy.get('.date-time-popup td[tabindex][data-value]')
+        getValueOfCurrentDay: () => cy.get('.date-time-popup td[tabindex][data-value]'),
 
+        //Splash-page
+        getSplashPage: () => cy.get('.splash-popup'),
+        getAcceptBntOnSplashPage: () => cy.get('.splash-popup .button-primary:nth-child(1)'),
+        getDeclineBntOnSplashPage: () => cy.get('.splash-popup .button-primary:nth-child(2)')
 
     };
 
@@ -73,13 +77,17 @@ class HomePage {
     typeLocation(location) {
         this.elements.getLocationInput()
             .trigger('mouseover')
-            .type(location);
+            .should('be.visible')
+            .wait(500)
+            .type(location)
+            .wait(500);
     };
     selectLocationFromDropdown(resLocation) {
         this.elements.getSearchLocationResultDropdown()
             .find('.drop-down-option')
             .contains(resLocation).should('be.visible')
-            .click({ force: true });
+            .click({ force: true })
+            .wait(500);
     };
 
     findLocation(locationName, resLocation) {
@@ -92,7 +100,8 @@ class HomePage {
     };
     clickCrossLocationBtn() {
         this.elements.getCrossLocationBtn()
-            .wait(800)
+            .should('be.visible')
+            .wait(1000)
             .click({force:true});
     };
 
@@ -211,12 +220,12 @@ class HomePage {
 
     clickStartDate() {
         this.elements.getCurrentDate()
-            .wait(1000)
+            .wait(1500)
             .trigger('mouseover')
             .click({ force: true });
         this.elements.getStartTime()
             .should('be.visible')
-            .wait(500)
+            .wait(800)
             .click({ force: true });
     };
 
@@ -285,6 +294,13 @@ class HomePage {
                 });
             }
         })
+    }
+
+    clickAcceptBtnOnSplashPage() {
+        this.elements.getAcceptBntOnSplashPage({timeout:500})
+            .should('be.visible')
+            .wait(500)
+            .click({force:true});
     }
 
 

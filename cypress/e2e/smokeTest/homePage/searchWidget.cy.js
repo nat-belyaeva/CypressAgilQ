@@ -3,6 +3,7 @@
 import HomePage from "../../../pageObjects/homePage";
 import LogInPage from "../../../pageObjects/logInPage";
 import listAssetTypes from "../../../fixtures/listAssetTypes";
+import clickIfExist from "../../../support/utilities/clickIfExist";
 
 const logInPage = new LogInPage();
 const homePage = new HomePage();
@@ -11,10 +12,21 @@ const ADMIN = Cypress.env('admin');
 describe("Search Widget Suite", () => {
 
     beforeEach(function () {
+        cy.intercept('/auth/logout/user').as('logout');
+        cy.intercept('/aq-api/users/profiles/delegate-clients?sysidUser=49').as('sysIdUser');
+
         cy.fixture('homePage').then(data => this.data = data);
         cy.clearLocalStorage();
+
         cy.visit('/');
+        cy.wait('@logout');
+
         cy.login(ADMIN.email, ADMIN.password);
+        cy.wait('@sysIdUser');
+
+        //if splash page is displayed
+        clickIfExist('.splash-popup .button-primary:nth-child(1)');
+
     });
 
      // afterEach(function () {

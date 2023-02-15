@@ -3,6 +3,8 @@
 import HomePage from "../../../pageObjects/homePage";
 import LogInPage from "../../../pageObjects/logInPage";
 import listAssetTypes from "../../../fixtures/listAssetTypes";
+import getClick from "../../../support/utilities/getClick";
+import clickIfExist from "../../../support/utilities/clickIfExist";
 
 const logInPage = new LogInPage();
 const homePage = new HomePage();
@@ -12,18 +14,27 @@ const ADMIN = Cypress.env('admin');
 describe("Check Action Buttons", () => {
 
     beforeEach(function () {
+            cy.intercept('/auth/logout/user').as('logout');
+            cy.intercept('/aq-api/users/profiles/delegate-clients?sysidUser=49').as('sysIdUser');
 
-        cy.fixture('homePage').then(data => this.data = data);
-        cy.clearLocalStorage();
-        cy.visit('/', {timeout: 90000});
+            cy.fixture('homePage').then(data => this.data = data);
+            cy.clearLocalStorage();
 
-        cy.login(ADMIN.email, ADMIN.password);
+            cy.visit('/');
+            cy.wait('@logout');
 
-    });
+            cy.login(ADMIN.email, ADMIN.password);
+            cy.wait('@sysIdUser');
+
+            //if splash page is displayed
+            clickIfExist('.splash-popup .button-primary:nth-child(1)');
+
+        });
 
     // afterEach(function () {
     //     cy.logout();
     // });
+
     it('TC_02.17 > Verify that Search by List Button is enabled When Collaboration space is selected', function () {
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
@@ -112,8 +123,7 @@ describe("Check Action Buttons", () => {
 
         homePage.elements.getSearchByFloorPlatBtn().should('not.be.disabled');
 
-    });
-
+    })
     it('TC_02.25 > Verify that User is able to click Book button for available asset', function () {
         homePage.findLocation(this.data.locationType, this.data.locationName);
         homePage.elements.getLocationInput().should('have.value', this.data.LocationValue);
@@ -127,10 +137,12 @@ describe("Check Action Buttons", () => {
         homePage.elements.getWhatTypeAsset().should('have.value','Workspace');
 
         homePage.clickSearchByListBtn({force:true});
-        cy.wait(3000);
+        //cy.wait(3000);
 
         homePage.elements.getListAvailableAssets().should('be.visible');
-        homePage.clickBookBtnForAvlBtn();
+        //use recurse function to click the button BookBtnForAvlBtn()
+        getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+       // homePage.clickBookBtnForAvlBtn();
         homePage.reserveForm.getReserveForm().should('be.visible');
 
     });
@@ -314,4 +326,4 @@ describe("Check Action Buttons", () => {
         homePage.elements.getSearchByFloorPlatBtn().should('not.be.disabled');
 
     });
-})
+});

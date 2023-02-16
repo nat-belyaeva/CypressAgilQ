@@ -16,7 +16,7 @@ describe("Check Date & TIme Picker", () => {
 
     beforeEach(function () {
         cy.intercept('/auth/logout/user').as('logout');
-        cy.intercept('/aq-api/users/profiles/delegate-clients?sysidUser=49').as('sysIdUser');
+        cy.intercept('/aq-api/users/profiles/*').as('sysIdUser');
         cy.intercept('/aq-api/locations/venues/*').as('getLocation');
 
         cy.fixture('homePage').then(data => this.data = data);

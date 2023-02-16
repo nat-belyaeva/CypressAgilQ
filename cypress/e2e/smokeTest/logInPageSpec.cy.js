@@ -19,7 +19,7 @@ describe ('LogIn test suit', () => {
 
 
     it("TC_01.01 > Verify that User is able to log in to the forum using a valid login and password", function () {
-        cy.intercept('/aq-api/users/profiles/delegate-clients?sysidUser=49').as('sysIdUser');
+        cy.intercept('/aq-api/users/profiles/*').as('sysIdUser');
         logInPage.logIn(this.data.userData.email, this.data.userData.password);
         cy.wait('@sysIdUser');
        header.getUserProfileBtn().should('be.visible'); //this element is displayed in header after login successfully

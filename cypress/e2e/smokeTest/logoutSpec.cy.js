@@ -9,11 +9,18 @@ const logInPage = new LogInPage();
 describe ('LogIn test suit', () => {
 
     beforeEach(function () {
+        cy.intercept('/auth/logout/user').as('logout');
+        cy.intercept('/aq-api/users/profiles/*').as('sysIdUser');
+
         cy.fixture('logInPage').then(data => this.data = data);
         cy.clearLocalStorage()
-        cy.clearCookies();
+        //cy.clearCookies();
+
         cy.visit('/', {timeout:90000});
+        cy.wait('@logout');
+
         cy.login(ADMIN.email, ADMIN.password);
+        cy.wait('@sysIdUser');
 
         //if splash page is displayed
         clickIfExist('.splash-popup .button-primary:nth-child(1)');

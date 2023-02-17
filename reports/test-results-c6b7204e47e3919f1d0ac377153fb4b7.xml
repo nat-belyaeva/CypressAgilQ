@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="243.515" tests="19" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-02-17T12:44:49" tests="0" file="cypress\e2e\smokeTest\homePage\actionButtons.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Check Action Buttons" timestamp="2023-02-17T12:44:49" tests="19" time="243.493" failures="0">
+    <testcase name="Check Action Buttons TC_02.17 &gt; Verify that Search by List Button is enabled When Collaboration space is selected" time="12.899" classname="TC_02.17 &gt; Verify that Search by List Button is enabled When Collaboration space is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.18 &gt; Verify that Search by Callendar button is enabled When Collaboration space is selected" time="12.246" classname="TC_02.18 &gt; Verify that Search by Callendar button is enabled When Collaboration space is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.19 &gt; Verify that Search by Floor button is enabled When Collaboration space is selected" time="11.979" classname="TC_02.19 &gt; Verify that Search by Floor button is enabled When Collaboration space is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.22 &gt; Verify that Search by List Button is enabled When Workspace type Asset is selected" time="13.163" classname="TC_02.22 &gt; Verify that Search by List Button is enabled When Workspace type Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.23 &gt; Verify that Search by Callendar button is enabled When Workspace type Asset is selected" time="12.854" classname="TC_02.23 &gt; Verify that Search by Callendar button is enabled When Workspace type Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.24 &gt; Verify that Search by Floor button is enabled When Workspace type Asset is selected" time="12.301" classname="TC_02.24 &gt; Verify that Search by Floor button is enabled When Workspace type Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.25 &gt; Verify that User is able to click Book button for available asset" time="17.868" classname="TC_02.25 &gt; Verify that User is able to click Book button for available asset">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.37 &gt; Verify that Search by List Button is enabled When Equipment Asset is selected" time="12.447" classname="TC_02.37 &gt; Verify that Search by List Button is enabled When Equipment Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.38 &gt; Verify that Search by Calendar Button is disabled When Equipment Asset is selected" time="12.832" classname="TC_02.38 &gt; Verify that Search by Calendar Button is disabled When Equipment Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.39 &gt; Verify that Search by Floor Plan Button is disabled When Equipment Asset is selected" time="12.766" classname="TC_02.39 &gt; Verify that Search by Floor Plan Button is disabled When Equipment Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.41 &gt; Verify that Search by List Button is enabled When Service Type Asset is selected" time="12.998" classname="TC_02.41 &gt; Verify that Search by List Button is enabled When Service Type Asset is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.42 &gt; Verify that Search by Calendar Button is disabled When Service Type is selected" time="12.659" classname="TC_02.42 &gt; Verify that Search by Calendar Button is disabled When Service Type is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.43 &gt; Verify that Search by Floor Plan Button is disabled When Service Type is selected" time="12.303" classname="TC_02.43 &gt; Verify that Search by Floor Plan Button is disabled When Service Type is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.42 &gt; Verify that Search by List Button is enabled When Parking Asset Type is selected" time="12.286" classname="TC_02.42 &gt; Verify that Search by List Button is enabled When Parking Asset Type is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.43 &gt; Verify that Search by Callendar button is enabled When Parking Asset Type is selected" time="12.144" classname="TC_02.43 &gt; Verify that Search by Callendar button is enabled When Parking Asset Type is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.44 &gt; Verify that Search by Floor button is enabled When Parking Asset Type is selected" time="12.211" classname="TC_02.44 &gt; Verify that Search by Floor button is enabled When Parking Asset Type is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.47 &gt; Verify that Search by List Button is enabled When Transportation Asset Type is selected" time="12.369" classname="TC_02.47 &gt; Verify that Search by List Button is enabled When Transportation Asset Type is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.48 &gt; Verify that Search by Callendar button is enabled When Transportation Asset Type is selected" time="12.351" classname="TC_02.48 &gt; Verify that Search by Callendar button is enabled When Transportation Asset Type is selected">
+    </testcase>
+    <testcase name="Check Action Buttons TC_02.49 &gt; Verify that Search by Floor button is enabled When Transportation Asset Type is selected" time="11.934" classname="TC_02.49 &gt; Verify that Search by Floor button is enabled When Transportation Asset Type is selected">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="49.427" tests="7" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-02-17T12:15:45" tests="0" file="cypress\e2e\smokeTest\logInPageSpec.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="LogIn test suit" timestamp="2023-02-17T12:15:45" tests="7" time="49.408" failures="0">
+    <testcase name="LogIn test suit TC_01.01 &gt; Verify that User is able to log in to the forum using a valid login and password" time="12.701" classname="TC_01.01 &gt; Verify that User is able to log in to the forum using a valid login and password">
+    </testcase>
+    <testcase name="LogIn test suit TC_01.02 &gt;  Verify that The user is not  able to log in to the forum using invalid login" time="6.159" classname="TC_01.02 &gt;  Verify that The user is not  able to log in to the forum using invalid login">
+    </testcase>
+    <testcase name="LogIn test suit TC_01.03 &gt;  Verify that The user is not  able to log in to the forum using invalid password" time="6.810" classname="TC_01.03 &gt;  Verify that The user is not  able to log in to the forum using invalid password">
+    </testcase>
+    <testcase name="LogIn test suit TC_01.04 &gt;Verify that User is able to sent A password reset email to the email address entered" time="7.141" classname="TC_01.04 &gt;Verify that User is able to sent A password reset email to the email address entered">
+    </testcase>
+    <testcase name="LogIn test suit TC_01.05 &gt;Verify that User is not able to sent a password reset email to the Invalid email address entered" time="6.063" classname="TC_01.05 &gt;Verify that User is not able to sent a password reset email to the Invalid email address entered">
+    </testcase>
+    <testcase name="LogIn test suit TC_01.20 &gt; Verify that Login button is disabled When Password is not filled in" time="5.403" classname="TC_01.20 &gt; Verify that Login button is disabled When Password is not filled in">
+    </testcase>
+    <testcase name="LogIn test suit TC_01.21 &gt; Verify that Login button is disabled When Email is not filled in" time="5.026" classname="TC_01.21 &gt; Verify that Login button is disabled When Email is not filled in">
+    </testcase>
+  </testsuite>
+</testsuites>

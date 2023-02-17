@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="127.692" tests="7" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-02-14T19:35:45" tests="0" file="cypress\e2e\smokeTest\homePage\createReservation.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Single Reservation Creation" timestamp="2023-02-14T19:35:45" tests="7" time="127.664" failures="0">
+    <testcase name="Single Reservation Creation TC_02.35 &gt; Verify that User is able to create single reservation with Workspace Asset type for Today" time="18.027" classname="TC_02.35 &gt; Verify that User is able to create single reservation with Workspace Asset type for Today">
+    </testcase>
+    <testcase name="Single Reservation Creation TC_02.36 &gt; Verify that User is able to create single reservation with Collaboration Space Asset type for Today" time="17.899" classname="TC_02.36 &gt; Verify that User is able to create single reservation with Collaboration Space Asset type for Today">
+    </testcase>
+    <testcase name="Single Reservation Creation TC_02.40 &gt; Verify that User is able to create single reservation with Equipment Asset type for Today" time="18.997" classname="TC_02.40 &gt; Verify that User is able to create single reservation with Equipment Asset type for Today">
+    </testcase>
+    <testcase name="Single Reservation Creation TC_02.41 &gt; Verify that User is able to create single reservation with Service Asset type" time="19.388" classname="TC_02.41 &gt; Verify that User is able to create single reservation with Service Asset type">
+    </testcase>
+    <testcase name="Single Reservation Creation TC_02.46 &gt; Verify that User is able to create single reservation with Parking Asset type for Today" time="17.956" classname="TC_02.46 &gt; Verify that User is able to create single reservation with Parking Asset type for Today">
+    </testcase>
+    <testcase name="Single Reservation Creation TC_02.50 &gt; Verify that User is able to create single reservation with Transportation Asset type for Today" time="17.309" classname="TC_02.50 &gt; Verify that User is able to create single reservation with Transportation Asset type for Today">
+    </testcase>
+    <testcase name="Single Reservation Creation TC_02.51 &gt; Verify that User is able to create single reservation with Health and Wellness Asset type for Today" time="17.715" classname="TC_02.51 &gt; Verify that User is able to create single reservation with Health and Wellness Asset type for Today">
+    </testcase>
+  </testsuite>
+</testsuites>

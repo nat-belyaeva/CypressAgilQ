@@ -1,12 +1,10 @@
-//elements
 class MyReservationsAndRequestsTab {
 
-    //tabs
-    getActiveReservationTab = () => cy.get('.active-sub-tab');
+  //tabs
+  getActiveReservationTab = () => cy.get('.active-sub-tab')
 
-    //reservations
+  //reservations
 
-    getListOfReservations = () => cy.get('.reservation-tile-list');
-
+  getListOfReservations = () => cy.get('.reservation-tile-list')
 
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="21.459" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-02-17T12:24:04" tests="0" file="cypress\e2e\smokeTest\homePage\reserveForm.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="reserve form verification" timestamp="2023-02-17T12:24:04" tests="1" time="21.434" failures="0">
+    <testcase name="reserve form verification TC_02.33 &gt; Verify that User is able to change Owner for another" time="21.269" classname="TC_02.33 &gt; Verify that User is able to change Owner for another">
+    </testcase>
+  </testsuite>
+</testsuites>

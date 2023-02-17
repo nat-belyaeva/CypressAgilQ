@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="131.942" tests="11" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-02-17T12:52:19" tests="0" file="cypress\e2e\smokeTest\homePage\searchWidget.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Search Widget Suite" timestamp="2023-02-17T12:52:19" tests="11" time="131.925" failures="0">
+    <testcase name="Search Widget Suite TC_02.06 &gt; Verify that Reservation is set up by default in the Reservation/Event dropdown" time="9.841" classname="TC_02.06 &gt; Verify that Reservation is set up by default in the Reservation/Event dropdown">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.07 &gt; Verify that User is able to select Event in the  Reservation/Event dropdown" time="11.393" classname="TC_02.07 &gt; Verify that User is able to select Event in the  Reservation/Event dropdown">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.08 &gt; Verify that User is able to select a location from Location Dropdown" time="13.199" classname="TC_02.08 &gt; Verify that User is able to select a location from Location Dropdown">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.09 &gt; Verify that User is able to cross selected location" time="13.102" classname="TC_02.09 &gt; Verify that User is able to cross selected location">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.10 &gt; Verify Asset Collaboration Space is selected by Admin User" time="12.379" classname="TC_02.10 &gt; Verify Asset Collaboration Space is selected by Admin User">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.11 &gt; Verify Asset Workspace is selected by Admin User" time="11.121" classname="TC_02.11 &gt; Verify Asset Workspace is selected by Admin User">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.12 &gt; Verify Asset Equipment is selected by Admin User" time="11.791" classname="TC_02.12 &gt; Verify Asset Equipment is selected by Admin User">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.13 &gt; Verify Asset Service is selected by Admin User" time="11.461" classname="TC_02.13 &gt; Verify Asset Service is selected by Admin User">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.14 &gt; Verify Asset Parking is selected by Admin User" time="11.486" classname="TC_02.14 &gt; Verify Asset Parking is selected by Admin User">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.15 &gt; Verify Asset Transportation is selected by Admin User" time="12.954" classname="TC_02.15 &gt; Verify Asset Transportation is selected by Admin User">
+    </testcase>
+    <testcase name="Search Widget Suite TC_02.16 &gt; Verify Asset Health and Wellness is selected by Admin User" time="12.919" classname="TC_02.16 &gt; Verify Asset Health and Wellness is selected by Admin User">
+    </testcase>
+  </testsuite>
+</testsuites>

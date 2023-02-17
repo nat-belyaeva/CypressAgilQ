@@ -168,7 +168,7 @@ describe('reserve form verification', () => {
       .and('have.text', this.data.newChangeOwnerPopupText)
   })
 
-  it.only('TC_02.33 > Verify that User is able to change Owner for another', function () {
+  it('TC_02.33 > Verify that User is able to change Owner for another', function () {
     homePage.findLocation(this.data.locationType, this.data.locationName)
     homePage.getLocationInput().should('have.value', this.data.LocationValue)
     homePage.clickWhatField()

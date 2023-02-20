@@ -137,9 +137,8 @@ describe('reserve form verification', () => {
 
     cy.wait('@cost-estimates')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
-    homePage.reserveForm.getReservationNameInput().then(el => expect(el.val()).to.eql(reserveName))
+    homePage.typeReservationName(randomReservationName)
+    homePage.reserveForm.getReservationNameInput().then(el => expect(el.val()).to.eql(randomReservationName))
   })
 
   it('TC_02.32 > Verify that Change Owner button is clickable', function () {
@@ -224,8 +223,7 @@ describe('reserve form verification', () => {
     getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
     cy.wait('@cost-estimates')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
+    homePage.typeReservationName(randomReservationName)
     homePage.reserveForm.getAddAssetBtn().should('be.enabled')
   })
 })

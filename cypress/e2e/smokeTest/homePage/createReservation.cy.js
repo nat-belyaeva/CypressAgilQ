@@ -39,8 +39,7 @@ describe('Single Reservation Creation', () => {
     //use recurse function to click the button BookBtnForAvlBtn()
     getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
+    homePage.typeReservationName(randomReservationName)
     homePage.clickSubmitBtn()
 
     cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
@@ -65,8 +64,7 @@ describe('Single Reservation Creation', () => {
     //use recurse function to click the button BookBtnForAvlBtn()
     getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
+    homePage.typeReservationName(randomReservationName)
     homePage.typeNumberOfPeopleExpectedToAttend(this.data.numberOfPeopleExpectedToAttend)
     homePage.reserveForm.getNumberOfPeopleExpectedToAttend().should('have.value', this.data.numberOfPeopleExpectedToAttend)
     homePage.clickSubmitBtn()
@@ -92,11 +90,8 @@ describe('Single Reservation Creation', () => {
     //use recurse function to click the button BookBtnForAvlBtn()
     getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
-
-    const location = randomLocation
-    homePage.typeDeliveryLocation(location)
+    homePage.typeReservationName(randomReservationName)
+    homePage.typeDeliveryLocation(randomLocation)
     homePage.typeQuantity(this.data.quantity)
     homePage.reserveForm.getQuantity().should('have.value', this.data.quantity)
     homePage.clickSubmitBtn()
@@ -121,12 +116,8 @@ describe('Single Reservation Creation', () => {
     //use recurse function to click the button BookBtnForAvlBtn()
     getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
-
-    const location = randomLocation
-    homePage.typeDeliveryLocation(location)
-
+    homePage.typeReservationName(randomReservationName)
+    homePage.typeDeliveryLocation(randomLocation)
     homePage.typeQuantity(this.data.quantity)
     homePage.reserveForm.getQuantity().should('have.value', this.data.quantity)
     homePage.clickSubmitBtn()
@@ -153,8 +144,7 @@ describe('Single Reservation Creation', () => {
     //use recurse function to click the button BookBtnForAvlBtn()
     getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
+    homePage.typeReservationName(randomReservationName)
     homePage.clickSubmitBtn()
 
     cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
@@ -178,8 +168,7 @@ describe('Single Reservation Creation', () => {
     //use recurse function to click the button BookBtnForAvlBtn()
     getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
+    homePage.typeReservationName(randomReservationName)
     homePage.clickSubmitBtn()
 
     cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
@@ -204,8 +193,7 @@ describe('Single Reservation Creation', () => {
     //use recurse function to click the button BookBtnForAvlBtn()
     getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
 
-    const reserveName = randomReservationName
-    homePage.typeReservationName(reserveName)
+    homePage.typeReservationName(randomReservationName)
     homePage.clickSubmitBtn()
 
     cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)

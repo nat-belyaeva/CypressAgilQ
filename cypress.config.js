@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: '717nmj',
   viewportWidth: 1920,
   viewportHeight: 1080,
   chromeWebSecurity: false,
@@ -12,11 +13,15 @@ module.exports = defineConfig({
     baseUrl: 'https://loginauto.agilquest.com',
     excludeSpecPattern: ['**/1-getting-started/*', '**/2-advanced-examples/*'],
     setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
       // implement node event listeners here
     },
   },
-  reporter: 'junit',
+  reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     mochaFile: 'reports/test-results-[hash].xml',
+    reportFilename: 'mochawesome',
+    reportDir: 'mochawesomeReports',
+    overwrite: true
   },
 });

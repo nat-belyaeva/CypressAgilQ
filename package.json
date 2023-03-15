@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "testsE2E": "npx cypress run --browser chrome",
-    "testHomePage": "npx cypress run --headless --spec './cypress/e2e/smokeTest/homePage/*.js' --browser chrome"
+    "testsE2E": "npx cypress run --browser chrome ",
+
+    "testHomePage": "npx cypress run --headless --spec './cypress/e2e/smokeTest/homePage/*.js' --browser chrome --record --key 814e99af-fa97-47e5-995a-e8008477f1f4",
+    "testLogIn": "npx cypress run --headless --spec './cypress/e2e/smokeTest/*.js' --browser chrome",
+    "headHomePage": "npx cypress run  --spec './cypress/e2e/smokeTest/homePage/*.js' --browser chrome"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +16,8 @@
     "@faker-js/faker": "^7.6.0",
     "cypress": "^10.11.0",
     "dayjs": "^1.11.7"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.3.0"
   }
 }

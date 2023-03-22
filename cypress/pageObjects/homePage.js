@@ -23,14 +23,14 @@ class HomePage {
   getBookBntForFirstAvailableAsset = () => cy.get('.search-result-item').eq(0).find('.button-primary')
 
   //When Widget
-  getStartTime = () => cy.get('#home_when_start_dateTimeWidget')
+  //getStartTime = () => cy.get('#home_when_start_dateTimeWidget')
   getCurrentDate = () => cy.get('#home_when')
-  getArrOfAvailableDaysInCalendar = () => cy.get('.date-time-popup tbody [tabindex]')
-  getArrowNextMonth = () => cy.get('span:contains("›")')
+  getArrOfAvailableDaysInCalendar = () => cy.get('.date-time-row:nth-child(1) tbody [tabindex]')
+  getArrowNextMonth = () => cy.get('.rdtNext[tabindex="0"] span')
   getApplyBtnOnCalendar = () => cy.get('.cancel-save-buttons button.save-button')
   getApplyBtnOnWhenWidget = () => cy.get('.when-cancel-save-buttons button.save-button')
-  getCurrentDayOnCalendar = () => cy.get('.date-time-popup td.rdtActive')
-  getValueOfCurrentDay = () => cy.get('.date-time-popup td[tabindex][data-value]')
+  getCurrentDayOnCalendar = () => cy.get('td.rdtActive').eq(1)
+  getValueOfCurrentDay = () => cy.get('.date-time-row:nth-child(1) td[tabindex][data-value]')
 
   //Splash-page
   getSplashPage = () => cy.get('.splash-popup')
@@ -232,10 +232,6 @@ class HomePage {
       .wait(1500)
       .trigger('mouseover')
       .click({ force: true })
-    this.getStartTime()
-      .should('be.visible')
-      .wait(800)
-      .click({ force: true })
   }
 
   clickArrowBtnNextMonth () {
@@ -245,12 +241,12 @@ class HomePage {
       .click({ force: true })
   }
 
-  clickApplyBtnOnCalendar () {
-    this.getApplyBtnOnCalendar()
-      .should('be.visible')
-      .wait(500)
-      .click({ force: true })
-  }
+  // clickApplyBtnOnCalendar () {
+  //   this.getApplyBtnOnCalendar()
+  //     .should('be.visible')
+  //     .wait(500)
+  //     .click({ force: true })
+  // }
 
   clickApplyBtnOnWhenWidget () {
     this.getApplyBtnOnWhenWidget()
@@ -283,8 +279,8 @@ class HomePage {
       let arrayActiveDays = dates.toArray()
       if (arrayActiveDays.length - plusDays > 0) { // Больше нуля только в том случае, если прибавляемый день находится в этом месяце
         this.getCurrentDayOnCalendar().invoke('attr', 'data-value').then(data => {
-          cy.get(`.date-time-popup td[tabindex][data-value=${+data + plusDays}]`).click({ force: true })
-          this.clickApplyBtnOnCalendar()
+          cy.get(`.date-time-row:nth-child(1) td[tabindex][data-value=${+data + plusDays}]`).click({ force: true })
+          //this.clickApplyBtnOnCalendar()
           this.clickApplyBtnOnWhenWidget()
           this.getCurrentDate().invoke('val').then(data => {
             let currentDateWeb = data.split(' - ')[0]
@@ -295,7 +291,7 @@ class HomePage {
         let nextMonthDay = plusDays - arrayActiveDays.length
         this.clickArrowBtnNextMonth()
         this.selectAnotherDayOfMonth(nextMonthDay)
-        this.clickApplyBtnOnCalendar()
+        //this.clickApplyBtnOnCalendar()
         this.clickApplyBtnOnWhenWidget()
         this.getCurrentDate().invoke('val').then(data => {
           let currentDateWeb = data.split(' - ')[0]

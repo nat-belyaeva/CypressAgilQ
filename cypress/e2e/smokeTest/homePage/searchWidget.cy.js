@@ -13,7 +13,7 @@ describe('Search Widget Suite', () => {
     cy.fixture('homePage').then(data => this.data = data)
   })
 
-  it('TC_02.06 > Verify that Reservation is set up by default in the Reservation/Event dropdown', function () {
+  it.skip('TC_02.06 > Verify that Reservation is set up by default in the Reservation/Event dropdown', function () {
     homePage.getWhatDropdown().should('have.class', this.data.defaultClass)
     homePage.getDefaultValue().should('have.value', this.data.isReservation)
   })

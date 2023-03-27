@@ -23,7 +23,7 @@ class HomePage {
   getBookBntForFirstAvailableAsset = () => cy.get('.search-result-item').eq(0).find('.button-primary')
 
   //When Widget
-  //getStartTime = () => cy.get('#home_when_start_dateTimeWidget')
+
   getCurrentDate = () => cy.get('#home_when')
   getArrOfAvailableDaysInCalendar = () => cy.get('.date-time-row:nth-child(1) tbody [tabindex]')
   getArrowNextMonth = () => cy.get('.rdtNext[tabindex="0"] span')
@@ -44,7 +44,7 @@ class HomePage {
     getReservationNameInput: () => cy.get('#name'),
     getPrivateCheckbox: () => cy.get('.bigCheckbox[type="checkbox"]#res-private'),
     getChangeOwnerBnt: () => cy.get('#owner-section-change-owner-button'),
-    getMsTeamsCheckbox: () => cy.get('[for="meeting-type-1"]').eq(1),
+    getMsTeamsCheckbox: () => cy.get('.bigCheckbox[type="checkbox"]#meeting-type-1'),
     getInviteesBtn: () => cy.get('.display-inv-grid-icon'),
     getNewChangeOwnerPopUp: () => cy.get('div .owner-section-header'),
     getNewChangeOwnerPopUpText: () => cy.get('.owner-section-header'),
@@ -179,13 +179,13 @@ class HomePage {
   }
 
   checkMsTeams () {
-    this.reserveForm.getMsTeamsCheckbox().check({ force: true })
+    this.reserveForm.getMsTeamsCheckbox().should('be.visible').check({ force: true }).should('be.checked')
 
   }
 
   uncheckMsTeams () {
     this.reserveForm.getMsTeamsCheckbox().check({ force: true }).should('be.checked')
-    this.reserveForm.getMsTeamsCheckbox().uncheck({ force: true })
+    this.reserveForm.getMsTeamsCheckbox().uncheck({ force: true }).should('not.be.checked')
 
   }
 

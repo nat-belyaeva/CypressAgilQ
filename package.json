@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "testsE2E": "npx cypress run --browser chrome ",
-
+    "testHomePageCreateReservation": "npx cypress run --headless --spec './cypress/e2e/smokeTest/homePage/createReservation.cy.js'",
     "testHomePage": "npx cypress run --headless --spec './cypress/e2e/smokeTest/homePage/*.js' --browser chrome --record --key 814e99af-fa97-47e5-995a-e8008477f1f4",
     "testLogIn": "npx cypress run --headless --spec './cypress/e2e/smokeTest/*.js' --browser chrome",
     "headHomePage": "npx cypress run  --spec './cypress/e2e/smokeTest/homePage/*.js' --browser chrome"

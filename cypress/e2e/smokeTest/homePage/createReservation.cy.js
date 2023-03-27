@@ -199,4 +199,193 @@ describe('Single Reservation Creation', () => {
     cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
     cy.wait('@reservationConfirmationNumber').its('response.body').should('have.a.property', 'sysidConfirmationNumber')
   })
+
+  it('TC_02.59 > Verify that User is able to create single reservation with Collaboration Space Asset type in Future', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === this.data.assetTypes[0]) {
+        cy.wrap($el).click()
+      }
+    })
+
+    homePage.getWhatTypeAsset().should('have.value', 'Collaboration Space')
+    homePage.clickStartDate()
+    homePage.selectAnotherDay(3)
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+
+    homePage.typeReservationName(randomReservationName)
+    homePage.typeNumberOfPeopleExpectedToAttend(this.data.numberOfPeopleExpectedToAttend)
+    homePage.reserveForm.getNumberOfPeopleExpectedToAttend().should('have.value', this.data.numberOfPeopleExpectedToAttend)
+    homePage.clickSubmitBtn()
+
+    cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
+    cy.wait('@reservationConfirmationNumber').its('response.body').should('have.a.property', 'sysidConfirmationNumber')
+  })
+
+  it('TC_02.60 > Verify that User is able to create single reservation with Workspace Asset type on Future day', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === this.data.assetTypes[1]) {
+        cy.wrap($el).click()
+      }
+    })
+    homePage.getWhatTypeAsset().should('have.value', 'Workspace')
+    homePage.clickStartDate()
+    homePage.selectAnotherDay(3)
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+
+    homePage.typeReservationName(randomReservationName)
+    homePage.clickSubmitBtn()
+
+    cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
+    cy.wait('@reservationConfirmationNumber').its('response.body').should('have.a.property', 'sysidConfirmationNumber')
+  })
+
+  it('TC_02.61 > Verify that User is able to create single reservation with Equipment Asset type on Future Day', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === this.data.assetTypes[2]) {
+        cy.wrap($el).click()
+      }
+    })
+
+    homePage.getWhatTypeAsset().should('have.value', 'Equipment')
+    homePage.clickStartDate()
+    homePage.selectAnotherDay(3)
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+
+    homePage.typeReservationName(randomReservationName)
+    homePage.typeDeliveryLocation(randomLocation)
+    homePage.typeQuantity(this.data.quantity)
+    homePage.reserveForm.getQuantity().should('have.value', this.data.quantity)
+    homePage.clickSubmitBtn()
+
+    cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
+    cy.wait('@reservationConfirmationNumber').its('response.body').should('have.a.property', 'sysidConfirmationNumber')
+  })
+
+  it('TC_02.62 > Verify that User is able to create single reservation with Service Asset type on Future day', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === this.data.assetTypes[3]) {
+        cy.wrap($el).click()
+      }
+    })
+    homePage.getWhatTypeAsset().should('have.value', this.data.assetTypes[3])
+    homePage.clickStartDate()
+    homePage.selectAnotherDay(3)
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+
+    homePage.typeReservationName(randomReservationName)
+    homePage.typeDeliveryLocation(randomLocation)
+    homePage.typeQuantity(this.data.quantity)
+    homePage.reserveForm.getQuantity().should('have.value', this.data.quantity)
+    homePage.clickSubmitBtn()
+
+    cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
+    cy.wait('@reservationConfirmationNumber').its('response.body').should('have.a.property', 'sysidConfirmationNumber')
+
+  })
+
+  it('TC_02.63 > Verify that User is able to create single reservation with Parking Asset type on Future Day', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === this.data.assetTypes[4]) {
+        cy.wrap($el).click()
+      }
+    })
+
+    homePage.getWhatTypeAsset().should('have.value', this.data.assetTypes[4])
+    homePage.clickStartDate()
+    homePage.selectAnotherDay(3)
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+
+    homePage.typeReservationName(randomReservationName)
+    homePage.clickSubmitBtn()
+
+    cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
+    cy.wait('@reservationConfirmationNumber').its('response.body').should('have.a.property', 'sysidConfirmationNumber')
+  })
+
+  it('TC_02.64 > Verify that User is able to create single reservation with Transportation Asset type on Future Day', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === this.data.assetTypes[5]) {
+        cy.wrap($el).click()
+      }
+    })
+
+    homePage.getWhatTypeAsset().should('have.value', this.data.assetTypes[5])
+    homePage.clickStartDate()
+    homePage.selectAnotherDay(3)
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+
+    homePage.typeReservationName(randomReservationName)
+    homePage.clickSubmitBtn()
+
+    cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
+    cy.wait('@reservationConfirmationNumber').its('response.body').should('have.a.property', 'sysidConfirmationNumber')
+  })
+
+  it('TC_02.65 > Verify that User is able to create single reservation with Health and Wellness Asset type on Future Day', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === this.data.assetTypes[6]) {
+        cy.wrap($el).click()
+      }
+    })
+
+    homePage.getWhatTypeAsset().should('have.value', this.data.assetTypes[6])
+    homePage.clickStartDate()
+    homePage.selectAnotherDay(3)
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+
+    homePage.typeReservationName(randomReservationName)
+    homePage.clickSubmitBtn()
+
+    cy.wait('@reservationCreated').its('response.statusCode').should('eq', 200)
+    cy.wait('@reservationConfirmationNumber').its('response.body').should('have.a.property', 'sysidConfirmationNumber')
+  })
 })

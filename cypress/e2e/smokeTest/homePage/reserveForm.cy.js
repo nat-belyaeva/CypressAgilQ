@@ -226,4 +226,42 @@ describe('reserve form verification', () => {
     homePage.typeReservationName(randomReservationName)
     homePage.reserveForm.getAddAssetBtn().should('be.enabled')
   })
+
+  it('TC_02.57 > Verify that User is able to check the MS Teams checkbox', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === 'Workspace') {
+        cy.wrap($el).click()
+      }
+    })
+
+    homePage.getWhatTypeAsset().should('have.value', 'Workspace')
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+    cy.wait('@cost-estimates')
+    homePage.checkMsTeams()
+  })
+
+  it('TC_02.58 > Verify that User is able to uncheck the MS Teams checkbox', function () {
+    homePage.findLocation(this.data.locationType, this.data.locationName)
+    homePage.getLocationInput().should('have.value', this.data.LocationValue)
+    homePage.clickWhatField()
+    homePage.getListAssetTypes().each(($el, index, $list) => {
+      if ($el.text() === 'Workspace') {
+        cy.wrap($el).click()
+      }
+    })
+
+    homePage.getWhatTypeAsset().should('have.value', 'Workspace')
+    homePage.clickSearchByListBtn({ force: true })
+    homePage.getListAvailableAssets().should('be.visible')
+    //use recurse function to click the button BookBtnForAvlBtn()
+    getClick('.search-result-item:nth-child(1) button', '.reservation-form-container')
+    cy.wait('@cost-estimates')
+    homePage.uncheckMsTeams()
+  })
 })

@@ -21,7 +21,7 @@ describe('Check Date & TIme Picker', () => {
     })
   })
 
-  it.only('TC_02.53 > Verify that User is able to select Date in Future in When Widget', function () {
+  it('TC_02.53 > Verify that User is able to select Date in Future in When Widget', function () {
     homePage.findLocation(this.data.locationType, this.data.locationName)
     homePage.getLocationInput().should('have.value', this.data.LocationValue)
     cy.wait('@getLocation')

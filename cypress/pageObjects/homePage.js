@@ -280,7 +280,6 @@ class HomePage {
       if (arrayActiveDays.length - plusDays > 0) { // Больше нуля только в том случае, если прибавляемый день находится в этом месяце
         this.getCurrentDayOnCalendar().invoke('attr', 'data-value').then(data => {
           cy.get(`.date-time-row:nth-child(1) td[tabindex][data-value=${+data + plusDays}]`).click({ force: true })
-          //this.clickApplyBtnOnCalendar()
           this.clickApplyBtnOnWhenWidget()
           this.getCurrentDate().invoke('val').then(data => {
             let currentDateWeb = data.split(' - ')[0]
@@ -288,10 +287,9 @@ class HomePage {
           })
         })
       } else {
-        let nextMonthDay = plusDays - arrayActiveDays.length
+        let nextMonthDay = plusDays
         this.clickArrowBtnNextMonth()
         this.selectAnotherDayOfMonth(nextMonthDay)
-        //this.clickApplyBtnOnCalendar()
         this.clickApplyBtnOnWhenWidget()
         this.getCurrentDate().invoke('val').then(data => {
           let currentDateWeb = data.split(' - ')[0]
